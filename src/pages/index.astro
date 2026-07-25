@@ -11,32 +11,13 @@ const bsArticles = [
 ];
 
 const bsMedia = [
-  { title: "steppe country, in motion", desc: "A real Baby Steppes clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7486964578207747374", isReal: true },
-  { title: "the steppe, explained", desc: "A primer on what the steppe actually is — the landscape, the history, and why it shaped everything from trade routes to empires.", videoId: "7577105307722140942", isReal: true },
-  { title: "GRWM: longform & education", desc: "A longform get-ready-with-me that doubles as an education piece.", videoId: "7354514922396618030", isReal: true },
-  { title: "on the road", desc: "A lifestyle vlog shot on the move — travel content in its rawest form.", videoId: "7148492600163552554", isReal: true },
-  { title: "replying to a comment", desc: "A quick reply video, answering a question that came up in the comments.", videoId: "7398355456139218222", isReal: true },
-  { title: "quick take", desc: "A shorter clip, straight from the feed.", videoId: "7572710536585022775", isReal: true },
+  { title: "steppe country, in motion", desc: "A real Baby Steppes clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7486964578207747374", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-01.jpg" },
+  { title: "the steppe, explained", desc: "A primer on what the steppe actually is — the landscape, the history, and why it shaped everything from trade routes to empires.", videoId: "7577105307722140942", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-02.jpg" },
+  { title: "GRWM: longform & education", desc: "A longform get-ready-with-me that doubles as an education piece.", videoId: "7354514922396618030", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-03.jpg" },
+  { title: "on the road", desc: "A lifestyle vlog shot on the move — travel content in its rawest form.", videoId: "7148492600163552554", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-04.jpg" },
+  { title: "replying to a comment", desc: "A quick reply video, answering a question that came up in the comments.", videoId: "7398355456139218222", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-05.jpg" },
+  { title: "quick take", desc: "A shorter clip, straight from the feed.", videoId: "7572710536585022775", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-06.jpg" },
 ];
-
-// Fetch real thumbnails from TikTok's oEmbed endpoint at build time for the real clips,
-// so we don't need manually-uploaded media for those tiles. The raw TikTok caption is
-// often messy or empty, so the curated titles above are kept instead of being overwritten.
-await Promise.all(
-  bsMedia
-    .filter((m) => m.isReal)
-    .map(async (m) => {
-      try {
-        const videoUrl = `https://www.tiktok.com/@babysteppes/video/${m.videoId}`;
-        const res = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(videoUrl)}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data.thumbnail_url) m.thumbnail = data.thumbnail_url;
-      } catch {
-        // fall back to the placeholder tile if TikTok is unreachable at build time
-      }
-    })
-);
 
 const loveMedia = [
   { title: "premieres in 1 day", src: "/img/lovecampus/lovecampus1.gif" },
@@ -62,29 +43,10 @@ const mavMedia = [
 ];
 
 const eduMedia = [
-  { title: "realism in ancient Egyptian art", desc: "A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7074672725553351982", isReal: true },
-  { title: "AI, ethics, and the people behind it", desc: "Another real ottilie.edu clip, embedded directly from TikTok.", videoId: "7109229276708474158", isReal: true },
-  { title: "ancient Egyptian makeup, with Dex", desc: "A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7103253714441342251", isReal: true },
+  { title: "realism in ancient Egyptian art", desc: "A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7074672725553351982", isReal: true, thumbnail: "/img/tiktok-thumbs/edu-01.jpg" },
+  { title: "AI, ethics, and the people behind it", desc: "Another real ottilie.edu clip, embedded directly from TikTok.", videoId: "7109229276708474158", isReal: true, thumbnail: "/img/tiktok-thumbs/edu-02.jpg" },
+  { title: "ancient Egyptian makeup, with Dex", desc: "A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7103253714441342251", isReal: true, thumbnail: "/img/tiktok-thumbs/edu-03.jpg" },
 ];
-
-// Same build-time oEmbed lookup as bsMedia above, for the real ottilie.edu clips.
-// Note: only the thumbnail is pulled in — the raw TikTok title is full of hashtags,
-// so the curated titles above are kept instead of being overwritten.
-await Promise.all(
-  eduMedia
-    .filter((m) => m.isReal)
-    .map(async (m) => {
-      try {
-        const videoUrl = `https://www.tiktok.com/@ottilie.edu/video/${m.videoId}`;
-        const res = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(videoUrl)}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data.thumbnail_url) m.thumbnail = data.thumbnail_url;
-      } catch {
-        // fall back to the placeholder tile if TikTok is unreachable at build time
-      }
-    })
-);
 
 const kennanMedia = [
   { title: "speaker quote — Alexander Urzhanov, journalist & producer", src: "/img/kennan/kennan-01-urzhanov-quote.png", ratio: "900/754" },
