@@ -1,539 +1,1357 @@
 ---
-const ACCENT = "#d98fae";
-const CHIP_BG = "#c7c0d1";
-
-const bsArticles = [
-  { title: "Horseplay", date: "Jul 2024", subtitle: "An injury-filled account of a traditional Uzbek ko'pkari (horseback goat-wrestling) match.", url: "https://ottilie.substack.com" },
-  { title: "Curio Shop", date: "Aug 2023", subtitle: "A love letter to antiques markets in Uzbekistan.", url: "https://ottilie.substack.com" },
-  { title: "Out of the Frying Pan", date: "Aug 2023", subtitle: "A bittersweet farewell to Urgench, recounting goodbyes to friends, students, and a scheming landlord.", url: "https://ottilie.substack.com" },
-  { title: "Number One Best Wedding Shop", date: "Dec 2022", subtitle: "An exploration of Uzbek wedding customs, arranged marriage, and the telenovela-inspired names of local bridal shops.", url: "https://ottilie.substack.com" },
-  { title: "Elliq Qala", date: "Oct 2022", subtitle: "A travelogue on visiting ancient desert fortresses in Karakalpakstan.", url: "https://ottilie.substack.com" },
-];
-
-const bsMedia = [
-  { title: "steppe country, in motion", desc: "A real Baby Steppes clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7486964578207747374", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-01.jpg" },
-  { title: "the steppe, explained", desc: "A primer on what the steppe actually is — the landscape, the history, and why it shaped everything from trade routes to empires.", videoId: "7577105307722140942", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-02.jpg" },
-  { title: "GRWM: longform & education", desc: "A longform get-ready-with-me that doubles as an education piece.", videoId: "7354514922396618030", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-03.jpg" },
-  { title: "on the road", desc: "A lifestyle vlog shot on the move — travel content in its rawest form.", videoId: "7148492600163552554", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-04.jpg" },
-  { title: "replying to a comment", desc: "A quick reply video, answering a question that came up in the comments.", videoId: "7398355456139218222", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-05.jpg" },
-  { title: "quick take", desc: "A shorter clip, straight from the feed.", videoId: "7572710536585022775", isReal: true, thumbnail: "/img/tiktok-thumbs/bs-06.jpg" },
-];
-
-const loveMedia = [
-  { title: "premieres in 1 day", src: "/img/lovecampus/lovecampus1.gif" },
-  { title: "premieres in 3 days", src: "/img/lovecampus/lovecampus4.gif" },
-  { title: "last day to apply", src: "/img/lovecampus/lovecampus2.jpg" },
-  { title: "love campus", src: "/img/lovecampus/lovecampus3.jpg" },
-  { title: "meet the cast", src: "/img/lovecampus/lovecampus5.jpg" },
-  { title: "last day to apply", src: "/img/lovecampus/lovecampus6.jpg" },
-];
-
-const mavMedia = [
-  { title: "Waka Flocka Flame, MavPro Palooza 2022", src: "/img/maverick/mav-01-waka-flocka.jpeg", ratio: "750/492" },
-  { title: "concert stage", src: "/img/maverick/mav-02-concert-stage.jpeg", ratio: "750/484" },
-  { title: "Blackbear at Baxter Arena", src: "/img/maverick/mav-03-blackbear.jpg", ratio: "1400/936" },
-  { title: "petting zoo event", src: "/img/maverick/mav-04-petting-zoo.jpg", ratio: "1400/933" },
-  { title: "photo booth", src: "/img/maverick/mav-05-photo-booth-a.jpg", ratio: "1400/861" },
-  { title: "photo booth", src: "/img/maverick/mav-06-photo-booth-b.jpg", ratio: "1400/839" },
-  { title: "glow event", src: "/img/maverick/mav-07-glow-1.jpg", ratio: "1400/933" },
-  { title: "glow event", src: "/img/maverick/mav-08-glow-2.jpg", ratio: "1400/933" },
-  { title: "filming promos", src: "/img/maverick/mav-09-filming-promos.jpg", ratio: "1400/933" },
-  { title: "food night flyer", src: "/img/maverick/mav-10-food-night.png", ratio: "900/1149", fit: "contain" },
-  { title: "MavPro Palooza staff badge", src: "/img/maverick/mav-11-staff-badge.jpeg", ratio: "744/992", fit: "contain" },
-];
-
-const eduMedia = [
-  { title: "realism in ancient Egyptian art", desc: "A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7074672725553351982", isReal: true, thumbnail: "/img/tiktok-thumbs/edu-01.jpg" },
-  { title: "AI, ethics, and the people behind it", desc: "Another real ottilie.edu clip, embedded directly from TikTok.", videoId: "7109229276708474158", isReal: true, thumbnail: "/img/tiktok-thumbs/edu-02.jpg" },
-  { title: "ancient Egyptian makeup, with Dex", desc: "A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.", videoId: "7103253714441342251", isReal: true, thumbnail: "/img/tiktok-thumbs/edu-03.jpg" },
-];
-
-const kennanMedia = [
-  { title: "speaker quote — Alexander Urzhanov, journalist & producer", src: "/img/kennan/kennan-01-urzhanov-quote.png", ratio: "900/754" },
-  { title: "speaker quote — Andrian Prokip, Ukrainian Institute for the Future", src: "/img/kennan/kennan-02-prokip-quote.jpg", ratio: "1200/675" },
-  { title: "event: Putin's Revenge — Why Russia Invaded Ukraine", src: "/img/kennan/kennan-03-event-graphic.png", ratio: "1/1" },
-];
+// Ottilie Ohm: notepad-style about / media portfolio / contact page.
 ---
 
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="generator" content={Astro.generator} />
-  <title>Ottilie Ohm — Media Portfolio</title>
-  <meta name="description" content="Global affairs, digital storytelling, and social media — Baby Steppes, Love Campus, Maverick Productions, and ottilie.edu." />
+  <title>Ottilie Ohm</title>
+  <meta name="description" content="Ottilie Ohm: Schwarzman Scholar and Fulbright grantee working across technology, international affairs, and digital storytelling. About, media portfolio, and contact." />
+  <meta property="og:title" content="Ottilie Ohm" />
+  <meta property="og:description" content="About, media portfolio, and contact." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <style is:global define:vars={{ accent: ACCENT, chipBg: CHIP_BG }}>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      background: #18181b;
-      color: #e9e3d2;
-      font-family: 'Courier Prime', 'Courier New', monospace;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    ::selection { background: #d9a9c2; color: #151d33; }
+  <link href="https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&display=swap" rel="stylesheet" />
+  <style is:global>
+    /* page defaults (the Artifact viewer used to supply these) */
+    :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+    body { font-size: 14px; }
+    img { max-width: 100%; }
+    [hidden] { display: none !important; }
 
-    @keyframes portfolioGlitch {
-      0%, 88%, 100% { transform: translate(0, 0); text-shadow: none; }
-      90% { transform: translate(-2px, 1px); text-shadow: 2px 0 #6fe0ff, -2px 0 #ff7fd0; }
-      92% { transform: translate(2px, -1px); text-shadow: -2px 0 #6fe0ff, 2px 0 #ff7fd0; }
-      94% { transform: translate(-1px, 0) skewX(1deg); text-shadow: 1px 0 #6fe0ff, -1px 0 #ff7fd0; }
-      96%, 100% { transform: translate(0, 0); text-shadow: none; }
-    }
-    .glitch { display: inline-block; animation: portfolioGlitch 7.5s infinite; }
+  :root {
+    --face: #E4E4E2;
+    --hi: #FFFFFF;
+    --sh: #9A9A9A;
+    --sh2: #000000;
+    --paper: #FFFFFF;
+    --desk: #FFFFFF;
+    --ink: #000000;
+    --mute: #6B6B6B;
+    --accent: #B53D3B;
+  }
 
-    .page { position: relative; min-height: 100vh; }
-    .bg-noise {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background-image: url(/img/textures/grain-noise.svg);
-      background-repeat: repeat; background-size: 260px 260px;
-      mix-blend-mode: overlay; opacity: .35;
-    }
+  * { box-sizing: border-box; }
 
-    .content {
-      position: relative; z-index: 1;
-      max-width: 1180px; margin: 0 auto;
-      padding: clamp(20px, 4vw, 56px) clamp(16px, 4vw, 40px) 64px;
-      display: flex; flex-direction: column; gap: 56px;
-    }
+  html, body { height: 100%; }
 
-    .hero {
-      text-align: center; display: flex; flex-direction: column;
-      align-items: center; gap: 14px; padding-top: 10px;
-    }
-    .hero-line1 {
-      font-family: 'VT323', monospace; font-size: 72px; letter-spacing: 3px;
-      color: var(--accent); text-shadow: 0 0 3px rgba(0,0,0,.55);
-    }
-    .hero-line2 {
-      font-family: 'VT323', monospace; font-size: clamp(48px, 9vw, 96px);
-      letter-spacing: 10px; color: #e6e0ec; line-height: 1;
-      text-shadow: 0 0 4px rgba(0,0,0,.6);
-    }
+  body {
+    margin: 0;
+    background: var(--desk);
+    color: var(--ink);
+    font-family: 'Fanwood Text', Georgia, 'Times New Roman', serif;
+  }
 
-    .window {
-      background: #e9e5f0; border-radius: 4px; overflow: hidden;
-      box-shadow: 0 0 18px rgba(5,10,25,.55);
-      transition: box-shadow .3s ease, transform .3s ease;
-      border: 1.5px solid;
-    }
-    .window--purple { border-color: #8a7ab8; }
-    .window--teal { border-color: #7ad4d8; }
-    .window--blue { border-color: #6a86d0; }
-    .window--pink { border-color: #d99ab8; }
-    .window--gold { border-color: #c9a15a; }
-    .window--purple:hover { box-shadow: 0 0 12px 1px #8a7ab8, 0 10px 28px rgba(5,10,25,.4); }
-    .window--teal:hover { box-shadow: 0 0 12px 1px #7ad4d8, 0 10px 28px rgba(5,10,25,.4); }
-    .window--blue:hover { box-shadow: 0 0 12px 1px #6a86d0, 0 10px 28px rgba(5,10,25,.4); }
-    .window--pink:hover { box-shadow: 0 0 12px 1px #d99ab8, 0 10px 28px rgba(5,10,25,.4); }
-    .window--gold:hover { box-shadow: 0 0 12px 1px #c9a15a, 0 10px 28px rgba(5,10,25,.4); }
+  h1, h2 { text-wrap: balance; }
 
-    .titlebar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 9px 14px; color: #e6e0ec;
-      font-family: 'VT323', monospace; font-weight: 700; font-size: 24px; letter-spacing: 1px;
-    }
-    .titlebar--purple { background: #4a3d6e; }
-    .titlebar--teal { background: #2e6f74; }
-    .titlebar--blue { background: #2e3a70; }
-    .titlebar--pink { background: #7a3d5e; }
-    .titlebar--gold { background: #5c4a26; }
-    .titlebar-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
-    .dot--purple { background: #8a7ab8; }
-    .dot--teal { background: #7ad4d8; }
-    .dot--blue { background: #6a86d0; }
-    .dot--pink { background: #d99ab8; }
-    .dot--gold { background: #c9a15a; }
+  .chrome-text {
+    font-family: 'Fanwood Text', Georgia, 'Times New Roman', serif;
+  }
 
-    .window-body { padding: 22px; }
-    .split { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px; align-items: start; }
-    .stack { display: flex; flex-direction: column; gap: 14px; }
-    .lede { margin: 0; font-size: 15.5px; line-height: 1.7; color: #454c68; }
-    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
-    .chip { padding: 5px 11px; background: var(--chipBg); border-radius: 999px; font-size: 12.5px; color: #34304a; }
-    .more-link { font-size: 14px; font-weight: 600; color: var(--accent); margin-top: 2px; display: inline-block; }
+  /* ---- flat, double-ruled chrome: two real bordered boxes with a gap between ---- */
+  .raised {
+    background: var(--face);
+    border: 1px solid var(--sh2);
+  }
+  .inner-frame {
+    background: var(--paper);
+    border: 1px solid var(--sh2);
+  }
+  .sunken {
+    background: var(--paper);
+    border: 1px solid var(--sh2);
+  }
+  .sunken-shallow {
+    background: var(--paper);
+    border: 1px solid var(--sh2);
+  }
+  .photo-frame {
+    background: var(--paper);
+    border: 3px solid var(--accent);
+  }
 
-    .articles { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
-    .article-row {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 10px 12px; border-radius: 10px; background: #e3e0ea;
-      color: #898885; transition: transform .2s ease;
-    }
-    .article-row:hover { transform: scale(1.015); }
-    .article-head { display: flex; align-items: baseline; gap: 8px; }
-    .article-title { font-size: 14.5px; font-weight: 700; color: #181f36; }
-    .article-date { font-size: 11.5px; color: #6A8AA1; }
-    .article-sub { font-size: 13px; color: #5a6178; }
-    .article-arrow { font-size: 28px; font-weight: 700; color: var(--accent); flex: none; opacity: .65; transition: opacity .2s ease, transform .2s ease; }
-    .article-row:hover .article-arrow { opacity: 1; transform: translateX(3px); }
+  .desktop-frame {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+  }
 
-    .bs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .bs-tile, .edu-tile {
-      position: relative; aspect-ratio: 9/16; border-radius: 3px; overflow: hidden;
-      border: 1px solid rgba(16,24,43,.15); cursor: pointer; transition: transform .2s ease;
-      background: #2a2f4a; display: block; width: 100%; padding: 0;
-    }
-    .bs-tile:hover, .edu-tile:hover { transform: scale(1.03); }
-    .bs-tile img, .bs-tile .placeholder-fill, .edu-tile img, .edu-tile .placeholder-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .placeholder-fill {
-      background: radial-gradient(circle at 30% 20%, rgba(217,143,174,.25), transparent 60%), #23264f;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .placeholder-mark { font-family: 'VT323', monospace; font-size: 34px; color: rgba(230,224,236,.35); }
-    .bs-play {
-      position: absolute; top: 6px; left: 6px; width: 20px; height: 20px; border-radius: 50%;
-      background: rgba(0,0,0,.5); color: #efe9d8; display: flex; align-items: center; justify-content: center;
-      font-size: 10px; pointer-events: none;
-    }
-    .bs-caption {
-      position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 7px;
-      background: linear-gradient(0deg, rgba(0,0,0,.7), transparent);
-      color: #efe9d8; font-size: 10.5px; pointer-events: none;
-    }
-    .bs-real-badge {
-      position: absolute; top: 6px; right: 6px; padding: 2px 6px; background: var(--accent);
-      color: #181120; font-size: 9px; font-weight: 700; border-radius: 2px; letter-spacing: .5px;
-    }
+  .side-strip { flex: none; background: var(--paper); }
+  .side-strip.left {
+    width: 26px;
+    border-right: 1px solid var(--sh2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  .strip-arrow { font-size: 8px; line-height: 1; color: var(--mute); }
+  .strip-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--mute);
+  }
 
-    .bs-detail { display: none; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: stretch; }
-    .bs-detail.is-open { display: grid; }
-    .bs-detail-media {
-      position: relative; aspect-ratio: 9/16; max-height: 620px; min-width: 325px; border-radius: 3px;
-      overflow: hidden; border: 1px solid rgba(16,24,43,.15);
-    }
-    .bs-detail-media iframe { width: 100%; height: 100%; border: 0; }
-    .bs-detail-info { display: flex; flex-direction: column; gap: 12px; }
-    .bs-back { font-size: 13px; color: var(--accent); font-weight: 600; align-self: flex-start; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
-    .bs-detail-title { font-weight: 700; font-size: 17px; color: #181f36; }
-    .bs-detail-desc { margin: 0; font-size: 14.5px; line-height: 1.65; color: #454c68; }
-    .bs-detail-actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-    .btn-solid, .btn-outline {
-      text-align: center; padding: 11px 16px; border-radius: 3px; font-weight: 600; font-size: 14px;
-      font-family: inherit; cursor: pointer;
-    }
-    .btn-solid { background: var(--accent); color: #181120; border: none; }
-    .btn-outline { background: transparent; color: #181f36; border: 1px solid #181f36; }
+  .main-col { flex: 1 1 auto; min-width: 0; padding: 10px; }
 
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .contact-list { margin: 0; font-size: 14px; line-height: 1.6; max-width: 40ch; }
+  .contact-list dt { font-weight: 600; margin-top: 16px; }
+  .contact-list dt:first-child { margin-top: 0; }
+  .contact-list dd { margin: 0; color: var(--mute); word-break: break-word; }
+  .contact-link { color: var(--accent); }
 
-    .carousel-frame {
-      position: relative; border-radius: 3px; overflow: hidden;
-      border: 1px solid rgba(16,24,43,.15); background: #23264f;
-    }
-    .carousel-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    .carousel-frame .placeholder-fill { position: absolute; inset: 0; }
-    .carousel-caption {
-      position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 7px;
-      background: linear-gradient(0deg, rgba(0,0,0,.7), transparent);
-      color: #efe9d8; font-size: 10.5px; pointer-events: none;
-    }
-    .carousel-nav {
-      position: absolute; top: 50%; transform: translateY(-50%); width: 26px; height: 26px;
-      border-radius: 50%; border: none; background: rgba(0,0,0,.5); color: #efe9d8; font-size: 14px;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-    }
-    .carousel-nav--prev { left: 6px; }
-    .carousel-nav--next { right: 6px; }
-    .carousel-dots { display: flex; gap: 6px; justify-content: center; margin-top: 8px; }
-    .carousel-dot { width: 7px; height: 7px; padding: 0; border-radius: 50%; border: none; background: rgba(24,31,54,.25); cursor: pointer; }
-    .carousel-dot.is-active { background: var(--accent); }
+  .contact-form { max-width: 520px; margin: 0 0 8px; }
+  .contact-form .field { margin-bottom: 14px; }
+  .contact-form label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .contact-form .hint { font-weight: 400; font-style: italic; color: var(--mute); }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 14px;
+    padding: 8px 10px;
+    border: 1px solid var(--sh2);
+    background: #fff;
+    color: var(--ink);
+    border-radius: 0;
+  }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+  .contact-form input:focus-visible,
+  .contact-form textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .contact-form [aria-invalid="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .form-btn {
+    font: inherit;
+    font-size: 13px;
+    padding: 8px 20px;
+    border: 1.5px solid var(--accent);
+    background: #fff;
+    color: var(--accent);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .form-btn:hover { background: var(--accent); color: #fff; }
+  .form-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .form-status { margin: 10px 0 0; min-height: 1.4em; font-size: 13px; font-style: italic; color: var(--accent); }
+  .section-label.elsewhere { margin-top: 28px; }
 
-    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .outer-window { width: 100%; padding: 3px; background: var(--accent); }
 
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .outer-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    background: var(--paper);
+    border-bottom: 1px solid var(--sh2);
+  }
+  .outer-titlebar-label {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 14px 24px;
+    font-size: 38px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    text-align: center;
+  }
 
-    @media (max-width: 760px) {
-      .split { grid-template-columns: 1fr; }
-      .two-col { grid-template-columns: 1fr; }
-      .bs-detail.is-open { grid-template-columns: 1fr; }
-      .hero-line1 { font-size: 44px; }
-    }
+  .tabrow {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+    padding: 8px 18px;
+  }
+  .tab {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--mute);
+    letter-spacing: 0.02em;
+  }
+  .tab.active {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: underline;
+  }
+  .tab[data-tab] { cursor: pointer; user-select: none; }
+  .tab-panel[hidden] { display: none; }
+
+  .outer-content { background: var(--paper); padding: 10px; }
+
+  .window { width: 100%; }
+  .tab-panel .window,
+  .tab-panel .window > .inner-frame,
+  .tab-panel .content-surface {
+    background: transparent;
+    border: none;
+  }
+
+  .content-surface { padding: 14px 10px 6px; }
+
+  .media-list-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    margin-top: 26px;
+  }
+  .media-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: 28px;
+    align-items: center;
+  }
+  .media-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 36px;
+    align-items: stretch;
+  }
+  .media-frame {
+    position: relative;
+    background: var(--paper);
+    border: 1.4px solid var(--sh2);
+    border-top: none;
+    margin-top: 34px;
+    padding: 34px 24px 24px;
+    --tab-left: 18px;
+    --tab-width: 96px;
+    --tab-font: clamp(21px, 3vw, 31.5px);
+    --tab-h: calc(var(--tab-font) + 19.5px);
+  }
+  .media-frame::after {
+    content: "";
+    position: absolute;
+    top: -1.4px;
+    left: -1.4px;
+    right: -1.4px;
+    height: 1.4px;
+    background: linear-gradient(
+      to right,
+      var(--sh2) 0, var(--sh2) var(--tab-left),
+      transparent var(--tab-left), transparent calc(var(--tab-left) + var(--tab-width)),
+      var(--sh2) calc(var(--tab-left) + var(--tab-width)), var(--sh2) 100%
+    );
+  }
+  .tab-label {
+    position: absolute;
+    top: calc(-1 * var(--tab-h));
+    height: var(--tab-h);
+    left: var(--tab-left);
+    max-width: calc(100% - var(--tab-left) - 12px);
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 calc(var(--tab-h) + 6px);
+    font-family: 'Fanwood Text', Georgia, 'Times New Roman', serif;
+    font-size: var(--tab-font);
+    font-style: normal;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    z-index: 1;
+    background-repeat: no-repeat;
+  }
+  .media-frame.tab-b { --tab-left: 34px; }
+  .media-frame.tab-c { --tab-left: 26px; }
+  .media-frame.tab-d { --tab-left: 46px; }
+  .media-frame.tab-e { --tab-left: 20px; }
+  .media-frame.tab-f { --tab-left: 38px; }
+  .bio.release-note { margin-top: 1.65em; font-style: italic; color: var(--accent); }
+  .still-photo {
+    display: block;
+    width: 480px;
+    max-width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border: 1px solid var(--sh2);
+  }
+
+  .article-list { margin: 14px 0 0; }
+  .article-row {
+    display: block;
+    padding: 8px 0;
+    border-top: 1px dotted var(--sh);
+    color: inherit;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .article-list a.article-row:hover .article-title-line { text-decoration: underline; }
+  .article-row:last-child { border-bottom: 1px dotted var(--sh); }
+  .article-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .article-title-line { font-weight: 600; }
+  .article-date { color: var(--mute); white-space: nowrap; font-variant-numeric: tabular-nums; font-size: 12px; }
+  .article-sub { color: var(--mute); font-size: 12px; margin-top: 2px; line-height: 1.45; }
+  .more-link {
+    display: block;
+    width: fit-content;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  .media-sub-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+    margin: 18px 0 8px;
+  }
+
+  .media-box {
+    border: 2px solid var(--accent);
+    padding: 6px 8px 8px;
+    margin-top: 14px;
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .media-section > .media-box,
+  .media-section > div:last-child > .media-box:first-child { margin-top: 0; }
+
+  .mav-video-frame {
+    position: relative;
+    display: block;
+    width: 480px;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    border: 1px solid var(--sh2);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .mav-video-frame:hover { transform: scale(1.015); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
+  .mav-video-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s ease; }
+  .mav-video-frame:hover img { transform: scale(1.05); }
+  .mav-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .mav-video-frame:hover .mav-play { background: rgba(0,0,0,0.78); transform: translate(-50%, -50%) scale(1.08); }
+
+  /* ---- carousel ---- */
+  /* Definite width: the box shrink-wraps its content, so without this the
+     carousel (and its aspect-ratio image frame) resized with each caption. */
+  .carousel { width: 480px; max-width: 100%; }
+  .carousel-frame {
+    position: relative;
+    border: 1px solid var(--sh2);
+    background: var(--face);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .carousel-frame:hover { transform: scale(1.015); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
+  [data-carousel="kennan"] .carousel-frame { background: #000; }
+  .carousel-frame img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.25s ease; }
+  .carousel-frame:hover img { transform: scale(1.04); }
+  .carousel-caption { font-size: 12px; color: var(--mute); margin-top: 6px; min-height: 1.5em; }
+  [data-carousel="kennan"] .carousel-caption { min-height: 3em; }
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+  .carousel-btn {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--accent);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    cursor: pointer;
+  }
+  .carousel-dots { display: flex; gap: 5px; }
+  .carousel-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sh);
+    cursor: pointer;
+  }
+  .carousel-dots .dot.active { background: var(--accent); }
+
+  /* ---- expandable clip grid ---- */
+  .clip-grid {
+    max-width: 480px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .clip-grid[hidden] { display: none; }
+  .clip-tile {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border: 1px solid var(--sh2);
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--face);
+    font: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .clip-tile:hover { transform: scale(1.035); box-shadow: 0 4px 14px rgba(0,0,0,0.2); z-index: 1; }
+  .clip-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s ease; }
+  .clip-tile:hover img { transform: scale(1.08); }
+  .clip-tile .clip-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-top: 1px solid var(--sh2);
+    font-size: 9px;
+    line-height: 1.25;
+    padding: 3px 4px;
+    color: var(--ink);
+  }
+  .clip-detail {
+    max-width: 480px;
+    border: 1px solid var(--accent);
+    padding: 14px;
+  }
+  .clip-back {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--mute);
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .clip-detail-thumb {
+    width: 100%;
+    max-width: 180px;
+    display: block;
+    border: 1px solid var(--sh2);
+    margin-bottom: 10px;
+  }
+  .clip-detail-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .clip-detail-desc { font-size: 12.5px; color: var(--mute); line-height: 1.55; margin-bottom: 10px; }
+  .clip-watch-link { display: inline-block; color: var(--accent); font-size: 12.5px; }
+
+  .top-row {
+    display: grid;
+    grid-template-columns: minmax(170px, 225px) 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .headline {
+    font-family: 'Fanwood Text', Georgia, 'Times New Roman', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+
+  .photo-box {
+    aspect-ratio: 1201 / 1600;
+    position: relative;
+    overflow: visible;
+  }
+  .photo-box span {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    font-family: 'Fanwood Text', serif;
+  }
+  .photo-box img {
+    position: absolute;
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    object-fit: cover;
+    transform: rotate(-3deg) scale(1.05);
+    transform-origin: center;
+  }
+
+  .top-row .bio { max-width: none; padding-right: 96px; }
+
+  .bio {
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  .section-label {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    margin: 0 0 8px;
+  }
+
+  .two-col {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .sub-label { font-size: 13px; margin: 10px 0 2px; }
+  ul.plain {
+    list-style: none;
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  ul.plain.indent { padding-left: 18px; }
+
+  .lang-list { padding-left: 18px; }
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 185px;
+  }
+  .lang-level { color: var(--mute); font-weight: 700; letter-spacing: 0.05em; }
+
+  .edu-entry, .ach-entry { margin-bottom: 14px; font-size: 13px; line-height: 1.5; }
+  .edu-entry .role, .ach-entry .role { font-weight: 600; }
+  .edu-entry .meta, .ach-entry .meta { color: var(--mute); }
+  .detail-line { font-size: 12px; line-height: 1.5; margin-top: 3px; font-style: italic; color: var(--mute); }
+
+  .experience { margin-top: 24px; }
+  .exp-row {
+    border-top: 1px dotted var(--sh);
+    padding: 9px 8px;
+    margin: 0 -8px;
+    font-size: 13px;
+    line-height: 1.55;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .exp-row:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+  .exp-row-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .exp-row:last-child { border-bottom: 1px dotted var(--sh); }
+  .exp-row-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .exp-lines { flex: 1; min-width: 0; }
+  .exp-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .exp-role { font-weight: 600; }
+  .exp-org { color: var(--mute); }
+  .exp-loc { white-space: nowrap; color: var(--mute); }
+  .exp-date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--mute); }
+  .exp-detail {
+    display: none;
+    margin: 10px 0 2px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    border-left: 2px solid var(--face);
+    padding-left: 12px;
+  }
+  .exp-row.open .exp-detail { display: block; }
+  .exp-detail ul { margin: 0; padding-left: 16px; }
+
+  .statusbar {
+    height: 22px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+  }
+  .statusbar span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 1240px) {
+    .outer-header { grid-template-columns: 1fr; }
+    .outer-titlebar-label { grid-column: 1; grid-row: 1; border-bottom: 1px solid var(--sh2); }
+    .tabrow { grid-column: 1; grid-row: 2; justify-content: center; }
+  }
+
+  @media (max-width: 900px) {
+    .top-row .bio { padding-right: 0; }
+    .desktop-frame { flex-direction: column; }
+    .side-strip.left { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .top-row { grid-template-columns: 1fr; }
+    .photo-box { max-width: 180px; }
+    .two-col { grid-template-columns: 1fr; }
+    .content-surface { padding: 14px 12px 6px; }
+    .main-col { padding: 10px; }
+    .media-section { grid-template-columns: 1fr; }
+    .media-pair { grid-template-columns: 1fr; gap: 56px; }
+  }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="bg-noise"></div>
-
-    <div class="content">
-      <div class="hero">
-        <div class="hero-line1">
-          <span class="glitch" style="animation-delay:.8s">O</span><span>TTILIE </span><span class="glitch" style="animation-delay:4.2s">O</span><span>HM</span>
-        </div>
-        <div class="hero-line2">
-          <span>MEDIA P</span><span class="glitch" style="animation-delay:0s">O</span><span>RTF</span><span class="glitch" style="animation-delay:2.4s">O</span><span>LI</span><span class="glitch" style="animation-delay:4.8s">O</span>
-        </div>
-      </div>
-
-      <section id="babysteppes" class="window window--teal">
-        <div class="titlebar titlebar--teal">
-          <span>Baby Steppes</span>
-          <span class="titlebar-dot dot--teal"></span>
-        </div>
-        <div class="window-body split">
-          <div class="stack">
-            <p class="lede">A travel blog exploring the history and culture of the steppe, Baby Steppes has 140,000 followers and is published as long-form essays on Substack and short-form video on TikTok.</p>
-            <div class="articles">
-              {bsArticles.map((art) => (
-                <a class="article-row" href={art.url} target="_blank" rel="noopener">
-                  <span>
-                    <span class="article-head">
-                      <span class="article-title">{art.title}</span>
-                      <span class="article-date">{art.date}</span>
-                    </span>
-                    <span class="article-sub">{art.subtitle}</span>
-                  </span>
-                  <span class="article-arrow">→</span>
-                </a>
-              ))}
-            </div>
-            <a class="more-link" href="https://ottilie.substack.com" target="_blank" rel="noopener">See all articles on Substack →</a>
-          </div>
-
-          <div class="bs-media-panel">
-            <div class="bs-detail" id="bs-detail">
-              <div class="bs-detail-media" id="bs-detail-media"></div>
-              <div class="bs-detail-info">
-                <button class="bs-back" id="bs-back">← back to all clips</button>
-                <div class="bs-detail-actions" id="bs-detail-actions"></div>
-              </div>
-            </div>
-
-            <div class="bs-grid" id="bs-grid">
-              {bsMedia.map((m, i) => (
-                <button class="bs-tile" data-bs-index={i}>
-                  {m.thumbnail ? (
-                    <img src={m.thumbnail} alt={m.title} loading="lazy" />
-                  ) : (
-                    <span class="placeholder-fill"><span class="placeholder-mark">▶</span></span>
-                  )}
-                  <span class="bs-play">▶</span>
-                  {m.isReal && <span class="bs-real-badge">REAL</span>}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="two-col">
-        <section id="lovecampus" class="window window--blue">
-          <div class="titlebar titlebar--blue">
-            <span>Love Campus</span>
-            <span class="titlebar-dot dot--blue"></span>
-          </div>
-          <div class="window-body stack">
-            <div class="stack">
-              <p class="lede">A quarantine-inspired, fully online university dating show — I edited episodes for an audience that grew past 50,000 followers across YouTube, TikTok, and Instagram.</p>
-              <a class="more-link" href="https://www.youtube.com/channel/UCrWGnsCD8QJ2fMCVd2xRMqQ" target="_blank" rel="noopener">Watch Love Campus on YouTube →</a>
-            </div>
-            <div class="stack" style="gap:8px">
-              <div class="carousel-frame" id="love-frame" style="aspect-ratio:1">
-                <img id="love-img" src={loveMedia[0].src} alt={loveMedia[0].title} />
-                <div class="bs-play">▶</div>
-                <div class="carousel-caption" id="love-caption">{loveMedia[0].title}</div>
-                <button class="carousel-nav carousel-nav--prev" id="love-prev" aria-label="Previous">‹</button>
-                <button class="carousel-nav carousel-nav--next" id="love-next" aria-label="Next">›</button>
-              </div>
-              <div class="carousel-dots" id="love-dots">
-                {loveMedia.map((_, i) => <button class="carousel-dot" data-love-dot={i}></button>)}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="kennan" class="window window--gold">
-          <div class="titlebar titlebar--gold">
-            <span>Kennan Institute</span>
-            <span class="titlebar-dot dot--gold"></span>
-          </div>
-          <div class="window-body stack">
-            <div class="stack">
-              <p class="lede">As an Intern at the Wilson Center, I created media to support the Kennan Institute's analysis of post-Soviet political, economic, and security dynamics.</p>
-            </div>
-            <div class="stack" style="gap:8px">
-              <div class="carousel-frame" id="kennan-frame" style={`aspect-ratio:${kennanMedia[0].ratio}`}>
-                <div id="kennan-media-slot"></div>
-                <div class="carousel-caption" id="kennan-caption">{kennanMedia[0].title}</div>
-                <button class="carousel-nav carousel-nav--prev" id="kennan-prev" aria-label="Previous">‹</button>
-                <button class="carousel-nav carousel-nav--next" id="kennan-next" aria-label="Next">›</button>
-              </div>
-              <div class="carousel-dots" id="kennan-dots">
-                {kennanMedia.map((_, i) => <button class="carousel-dot" data-kennan-dot={i}></button>)}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <section id="mavpro" class="window window--purple">
-        <div class="titlebar titlebar--purple">
-          <span>Maverick Productions</span>
-          <span class="titlebar-dot dot--purple"></span>
-        </div>
-        <div class="window-body split">
-          <div class="stack">
-            <p class="lede">As Director of Media for the student programming board at the University of Nebraska Omaha, I coordinated, photographed, and filmed campus events — creating promotional material for a 15,000+ student body.</p>
-            <div class="carousel-frame" style="aspect-ratio:16/9">
-              <iframe src="https://www.youtube.com/embed/HwrLD-MjpHY" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="stack" style="gap:8px">
-            <div class="carousel-frame" id="mav-frame" style="aspect-ratio:3/2">
-              <div id="mav-media-slot"></div>
-              <div class="carousel-caption" id="mav-caption">{mavMedia[0].title}</div>
-              <button class="carousel-nav carousel-nav--prev" id="mav-prev" aria-label="Previous">‹</button>
-              <button class="carousel-nav carousel-nav--next" id="mav-next" aria-label="Next">›</button>
-            </div>
-            <div class="carousel-dots" id="mav-dots">
-              {mavMedia.map((_, i) => <button class="carousel-dot" data-mav-dot={i}></button>)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ottilieedu" class="window window--pink">
-        <div class="titlebar titlebar--pink">
-          <span>ottilie.edu</span>
-          <span class="titlebar-dot dot--pink"></span>
-        </div>
-        <div class="window-body split">
-          <div class="stack">
-            <p class="lede">A passion project that I started while taking non-credit classes in university, Ottilie.edu is a science education channel on TikTok that spans topics from fire education to ancient art history. It has 111,000 followers and 6 million likes, and I've collaborated with prominent content creators.</p>
-          </div>
-          <div class="bs-media-panel">
-            <div class="bs-detail" id="edu-detail">
-              <div class="bs-detail-media" id="edu-detail-media"></div>
-              <div class="bs-detail-info">
-                <button class="bs-back" id="edu-back">← back to all clips</button>
-                <div class="bs-detail-actions" id="edu-detail-actions"></div>
-              </div>
-            </div>
-
-            <div class="edu-grid" id="edu-grid">
-              {eduMedia.map((m, i) => (
-                <button class="edu-tile" data-edu-index={i}>
-                  {m.thumbnail ? (
-                    <img src={m.thumbnail} alt={m.title} loading="lazy" />
-                  ) : (
-                    <span class="placeholder-fill"><span class="placeholder-mark">▶</span></span>
-                  )}
-                  <span class="bs-play">▶</span>
-                  {m.isReal && <span class="bs-real-badge">REAL</span>}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+<div class="desktop-frame">
+  <div class="side-strip left">
+    <span class="strip-arrow">&#9650;</span>
+    <span class="strip-label">file 1</span>
+    <span class="strip-arrow">&#9660;</span>
   </div>
 
-  <script define:vars={{ bsMedia, eduMedia, loveMedia, mavMedia, kennanMedia }}>
-    function makeExpandableGrid({ media, prefix, datasetKey, account }) {
-      const grid = document.getElementById(`${prefix}-grid`);
-      const detail = document.getElementById(`${prefix}-detail`);
-      const detailMedia = document.getElementById(`${prefix}-detail-media`);
-      const detailActions = document.getElementById(`${prefix}-detail-actions`);
-      const back = document.getElementById(`${prefix}-back`);
+  <div class="main-col">
+    <div class="outer-window raised">
+     <div class="inner-frame">
+      <div class="outer-header chrome-text">
+        <span class="outer-titlebar-label">OTTILIE OHM</span>
+        <div class="tabrow" role="tablist" aria-label="Site sections">
+          <span class="tab active" role="tab" id="tab-about" data-tab="about" aria-controls="panel-about" aria-selected="true" tabindex="0">ABOUT ME</span>
+          <span class="tab" role="tab" id="tab-media" data-tab="media" aria-controls="panel-media" aria-selected="false" tabindex="-1">MEDIA PORTFOLIO</span>
+          <span class="tab" role="tab" id="tab-contact" data-tab="contact" aria-controls="panel-contact" aria-selected="false" tabindex="-1">CONTACT</span>
+        </div>
+      </div>
 
-      function open(index) {
-        const m = media[index];
-        detailMedia.innerHTML = '';
-        detailActions.innerHTML = '';
+      <div class="outer-content">
 
-        if (m.isReal) {
-          const iframe = document.createElement('iframe');
-          iframe.src = 'https://www.tiktok.com/embed/v2/' + m.videoId;
-          iframe.allow = 'encrypted-media;';
-          iframe.allowFullscreen = true;
-          detailMedia.appendChild(iframe);
+  <div class="tab-panel" data-panel="about" id="panel-about" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
+  <div class="window raised">
+   <div class="inner-frame">
+    <div class="content-surface sunken">
+      <div class="top-row">
+        <div class="photo-box photo-frame">
+          <img src="/img/ottilie-portrait.jpg" alt="Ottilie Ohm" />
+        </div>
 
-          const watchTiktok = document.createElement('a');
-          watchTiktok.className = 'btn-solid';
-          watchTiktok.href = `https://www.tiktok.com/@${account}/video/` + m.videoId;
-          watchTiktok.target = '_blank';
-          watchTiktok.rel = 'noopener';
-          watchTiktok.textContent = 'Watch on TikTok';
-          detailActions.appendChild(watchTiktok);
-        } else {
-          const fill = document.createElement('div');
-          fill.className = 'placeholder-fill';
-          fill.style.width = '100%';
-          fill.style.height = '100%';
-          fill.innerHTML = '<span class="placeholder-mark">▶</span>';
-          detailMedia.appendChild(fill);
+        <div>
+          <h1 class="headline">about Ottilie</h1>
+          <p class="bio">
+            Hi, I'm Ottilie &mdash; a Schwarzman Scholar and Fulbright grantee whose work has spanned
+            technology, international affairs, and operational problem-solving across four continents.
+            My degree in Information Technology Innovation fused entrepreneurship with technical fluency,
+            a combination I've applied everywhere from building automation systems at a defense contractor
+            to founding Central Asia's first international women's lacrosse competition &mdash; and, most days,
+            to turning research and reporting into video and writing people actually finish.
+          </p>
+        </div>
+      </div>
 
-          const pending = document.createElement('span');
-          pending.className = 'btn-outline';
-          pending.textContent = 'Clip coming soon';
-          detailActions.appendChild(pending);
-        }
+      <div class="two-col">
+        <div>
+          <p class="section-label">SKILLS:</p>
+          <p class="sub-label">technical &gt;</p>
+          <ul class="plain indent">
+            <li>Adobe Suite, Final Cut Pro</li>
+            <li>Canva, CapCut</li>
+            <li>Python, HTML/CSS</li>
+          </ul>
+          <p class="sub-label">languages &gt;</p>
+          <div class="lang-list">
+            <div class="lang-row"><span>English</span><span class="lang-level">*****</span></div>
+            <div class="lang-row"><span>Russian</span><span class="lang-level">***</span></div>
+            <div class="lang-row"><span>Spanish</span><span class="lang-level">**</span></div>
+            <div class="lang-row"><span>Chinese</span><span class="lang-level">*</span></div>
+            <div class="lang-row"><span>Uzbek</span><span class="lang-level">*</span></div>
+            <div class="lang-row"><span>Persian, Tajik</span><span class="lang-level">*</span></div>
+          </div>
+        </div>
 
-        detail.classList.add('is-open');
-        grid.style.display = 'none';
+        <div>
+          <p class="section-label">EDUCATION:</p>
+          <div class="edu-entry">
+            <div class="role">Tsinghua University &mdash; Master of Global Affairs</div>
+            <div class="meta">Schwarzman Scholar &middot; Beijing, China &middot; June 2026</div>
+            <div class="detail-line">Thesis: A Comparative Study of Yangtze and Mississippi River Governance. Interviewed farmers and officials on water management challenges, producing actionable policy recommendations.</div>
+          </div>
+          <div class="edu-entry">
+            <div class="role">University of Nebraska Omaha &mdash; B.S., Information Technology Innovation</div>
+            <div class="meta">Minors: Russian Language &amp; Art History &middot; Omaha, NE &middot; 2018&ndash;2022</div>
+            <div class="detail-line">National Coca-Cola Scholarship (0.16% acceptance rate); Walter Scott Jr. Scholarship (full ride)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience">
+        <p class="section-label">EXPERIENCE:</p>
+        <div class="exp-row open" data-exp>
+          <div class="exp-row-head" role="button" tabindex="0" aria-expanded="true">
+            <div class="exp-lines">
+              <div class="exp-line"><span class="exp-role">Citizen Diplomacy Action Fund Project Leader</span><span class="exp-loc">Zambia</span></div>
+              <div class="exp-line"><span class="exp-org">U.S. Department of State</span><span class="exp-date">Summer 2026</span></div>
+            </div>
+          </div>
+          <div class="exp-detail">
+            <ul>
+              <li>Won and led a conservation and digital storytelling grant in rural Zambia</li>
+              <li>22 students spent a week learning about National Parks and film production, producing a short film about Kasanka National Park</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-row open" data-exp>
+          <div class="exp-row-head" role="button" tabindex="0" aria-expanded="true">
+            <div class="exp-lines">
+              <div class="exp-line"><span class="exp-role">Multimedia Intern</span><span class="exp-loc">Washington, D.C.</span></div>
+              <div class="exp-line"><span class="exp-org">Wilson Center, Kennan Institute</span><span class="exp-date">2024&ndash;2025</span></div>
+            </div>
+          </div>
+          <div class="exp-detail">
+            <ul>
+              <li>Produced audiovisual content translating complex Eurasian geopolitical and policy research for public audiences</li>
+              <li>Managed cross-functional operations for high-profile speaker engagements and panel discussions with political and academic leaders, coordinating logistics, media, and on-site production</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-row open" data-exp>
+          <div class="exp-row-head" role="button" tabindex="0" aria-expanded="true">
+            <div class="exp-lines">
+              <div class="exp-line"><span class="exp-role">Fulbright Scholar</span><span class="exp-loc">Uzbekistan</span></div>
+              <div class="exp-line"><span class="exp-org">U.S. Department of State</span><span class="exp-date">2022&ndash;2024</span></div>
+            </div>
+          </div>
+          <div class="exp-detail">
+            <ul>
+              <li>Founded and executed the first Asian Lacrosse Games: secured a World Lacrosse Federation grant and coordinated a five-team international competition in Samarkand</li>
+              <li>Founded Baby Steppes, a 140,000-follower blog on Substack/TikTok covering politics, culture, and current events</li>
+              <li>Collaborated with Silk Road University to develop curriculum for a new M.A. in International Relations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-row open" data-exp>
+          <div class="exp-row-head" role="button" tabindex="0" aria-expanded="true">
+            <div class="exp-lines">
+              <div class="exp-line"><span class="exp-role">Director of Media</span><span class="exp-loc">Omaha, NE</span></div>
+              <div class="exp-line"><span class="exp-org">Maverick Productions, University of Nebraska</span><span class="exp-date">2019&ndash;2022</span></div>
+            </div>
+          </div>
+          <div class="exp-detail">
+            <ul>
+              <li>Managed simultaneous social media campaigns across platforms to promote large-scale campus events for a student body of 15,000, including a 7,500-capacity concert featuring 3 charting artists at Baxter Arena</li>
+              <li>Created promotional materials, sizzle reels, and event photography; oversaw ~$500,000 in event budgets</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-row open" data-exp>
+          <div class="exp-row-head" role="button" tabindex="0" aria-expanded="true">
+            <div class="exp-lines">
+              <div class="exp-line"><span class="exp-role">Project Management / Software Intern</span><span class="exp-loc">Omaha, NE</span></div>
+              <div class="exp-line"><span class="exp-org">Northrop Grumman</span><span class="exp-date">2020&ndash;2021</span></div>
+            </div>
+          </div>
+          <div class="exp-detail">
+            <ul>
+              <li>Monitored high-level meetings and produced materials for permanent archives at Offutt Air Force Base</li>
+              <li>Built a JIRA-based automation system that cut issue-checking time by 80%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-row open" data-exp>
+          <div class="exp-row-head" role="button" tabindex="0" aria-expanded="true">
+            <div class="exp-lines">
+              <div class="exp-line"><span class="exp-role">Visiting Scholar</span><span class="exp-loc">New York City, NY</span></div>
+              <div class="exp-line"><span class="exp-org">Feinstein Medical Research Institute</span><span class="exp-date">2019</span></div>
+            </div>
+          </div>
+          <div class="exp-detail">
+            <ul>
+              <li>Built trust with elderly patients to encourage the adoption of newly developed portable EKG monitors, enabling safe earlier hospital discharge and creating more space for new patients</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:24px">
+        <div>
+          <p class="section-label">ACHIEVEMENTS:</p>
+          <ul class="plain">
+            <li>Aspen Ideas Festival Scholar (2019)</li>
+            <li>National Security Language Initiative Scholar (Moscow, 2018)</li>
+            <li>Jane Street Estimathon Winner (2019)</li>
+            <li>Stanford d.school Design Thinking Certification</li>
+            <li>Clinton Global Initiative Awardee &mdash; built a scheduling system to improve rehabilitation retention rates at the Open Door Mission</li>
+          </ul>
+        </div>
+        <div></div>
+      </div>
+
+    </div>
+
+    <div class="statusbar chrome-text">
+      <span class="sunken-shallow">C:\portfolio\about_me.txt</span>
+      <span class="sunken-shallow">1 of 1</span>
+    </div>
+   </div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-panel="media" id="panel-media" role="tabpanel" aria-labelledby="tab-media" tabindex="0" hidden>
+  <div class="window raised">
+   <div class="inner-frame">
+    <div class="content-surface sunken">
+      <div class="media-list-simple">
+        <div class="media-section media-frame tab-f">
+          <span class="tab-label">U.S./Zambia CDAF Grant</span>
+          <div>
+            <p class="bio">Through the U.S. Department of State's Citizen Diplomacy Action Fund, I won and led a conservation and digital storytelling grant in rural Zambia. Over a week, 22 students learned about National Parks and film production, producing a short film about Kasanka National Park.</p>
+            <p class="bio release-note">The finished documentary goes live November 1.</p>
+          </div>
+          <div>
+            <div class="media-box">
+              <img class="still-photo" src="/img/cdaf/cdaf-binoculars.jpg" alt="A student smiles while looking through binoculars during the Kasanka National Park trip" />
+            </div>
+          </div>
+        </div>
+
+        <div class="media-section media-frame">
+          <span class="tab-label">Baby Steppes</span>
+          <div>
+            <p class="bio">A travel blog exploring the history and culture of the steppe, Baby Steppes has 140,000 followers and is published as long-form essays on Substack and short-form video on TikTok.</p>
+            <div class="article-list">
+              <a class="article-row" href="https://ottilie.substack.com" target="_blank" rel="noopener">
+                <div class="article-head"><span class="article-title-line">Horseplay &rarr;</span><span class="article-date">Jul 2024</span></div>
+                <div class="article-sub">An injury-filled account of a traditional Uzbek ko'pkari (horseback goat-wrestling) match.</div>
+              </a>
+              <a class="article-row" href="https://ottilie.substack.com" target="_blank" rel="noopener">
+                <div class="article-head"><span class="article-title-line">Curio Shop &rarr;</span><span class="article-date">Aug 2023</span></div>
+                <div class="article-sub">A love letter to antiques markets in Uzbekistan.</div>
+              </a>
+              <a class="article-row" href="https://ottilie.substack.com" target="_blank" rel="noopener">
+                <div class="article-head"><span class="article-title-line">Out of the Frying Pan &rarr;</span><span class="article-date">Aug 2023</span></div>
+                <div class="article-sub">A bittersweet farewell to Urgench, recounting goodbyes to friends, students, and a scheming landlord.</div>
+              </a>
+              <a class="article-row" href="https://ottilie.substack.com" target="_blank" rel="noopener">
+                <div class="article-head"><span class="article-title-line">Number One Best Wedding Shop &rarr;</span><span class="article-date">Dec 2022</span></div>
+                <div class="article-sub">An exploration of Uzbek wedding customs, arranged marriage, and the telenovela-inspired names of local bridal shops.</div>
+              </a>
+              <a class="article-row" href="https://ottilie.substack.com" target="_blank" rel="noopener">
+                <div class="article-head"><span class="article-title-line">Elliq Qala &rarr;</span><span class="article-date">Oct 2022</span></div>
+                <div class="article-sub">A travelogue on visiting ancient desert fortresses in Karakalpakstan.</div>
+              </a>
+            </div>
+            <a class="more-link" href="https://ottilie.substack.com" target="_blank" rel="noopener">See all articles on Substack &rarr;</a>
+          </div>
+          <div class="media-box">
+            <div class="clip-grid" data-clipgrid="bs"></div>
+            <div class="clip-detail" data-clipdetail="bs" hidden>
+              <span class="clip-back">&larr; back to all clips</span>
+              <img class="clip-detail-thumb" src="" alt="" />
+              <div class="clip-detail-title"></div>
+              <div class="clip-detail-desc"></div>
+              <a class="clip-watch-link" href="" target="_blank" rel="noopener">Watch on TikTok &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-pair">
+          <div class="media-frame tab-b">
+            <span class="tab-label">Love Campus</span>
+            <p class="bio">A quarantine-inspired, fully online university dating show &mdash; I edited episodes for an audience that grew past 50,000 followers across YouTube, TikTok, and Instagram.</p>
+            <a class="more-link" href="https://www.youtube.com/channel/UCrWGnsCD8QJ2fMCVd2xRMqQ" target="_blank" rel="noopener">Watch Love Campus on YouTube &rarr;</a>
+            <div class="media-box">
+              <div class="carousel" data-carousel="love">
+                <div class="carousel-frame" style="aspect-ratio:1">
+                  <img class="carousel-img" src="" alt="" />
+                </div>
+                <div class="carousel-caption"></div>
+                <div class="carousel-controls">
+                  <button class="carousel-btn" type="button" data-dir="-1" aria-label="Previous">&#8592;</button>
+                  <div class="carousel-dots"></div>
+                  <button class="carousel-btn" type="button" data-dir="1" aria-label="Next">&#8594;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-frame tab-c">
+            <span class="tab-label">Kennan Institute</span>
+            <p class="bio">As an Intern at the Wilson Center, I created media to support the Kennan Institute's analysis of post-Soviet political, economic, and security dynamics.</p>
+            <div class="media-box">
+              <div class="carousel" data-carousel="kennan">
+                <div class="carousel-frame" style="aspect-ratio:900/754">
+                  <img class="carousel-img" src="" alt="" />
+                </div>
+                <div class="carousel-caption"></div>
+                <div class="carousel-controls">
+                  <button class="carousel-btn" type="button" data-dir="-1" aria-label="Previous">&#8592;</button>
+                  <div class="carousel-dots"></div>
+                  <button class="carousel-btn" type="button" data-dir="1" aria-label="Next">&#8594;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-section media-frame tab-d">
+          <span class="tab-label">Maverick Productions</span>
+          <div>
+            <p class="bio">As Director of Media for the student programming board at the University of Nebraska Omaha, I coordinated, photographed, and filmed campus events &mdash; creating promotional material for a 15,000+ student body.</p>
+            <div class="media-box">
+              <a class="mav-video-frame" href="https://www.youtube.com/watch?v=HwrLD-MjpHY" target="_blank" rel="noopener">
+                <img src="/img/maverick/mav-video-thumb.jpg" alt="Maverick Productions recap video" />
+                <span class="mav-play" aria-hidden="true">&#9658;</span>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="media-box">
+              <div class="carousel" data-carousel="mav">
+                <div class="carousel-frame" style="aspect-ratio:3/2">
+                  <img class="carousel-img" src="" alt="" />
+                </div>
+                <div class="carousel-caption"></div>
+                <div class="carousel-controls">
+                  <button class="carousel-btn" type="button" data-dir="-1" aria-label="Previous">&#8592;</button>
+                  <div class="carousel-dots"></div>
+                  <button class="carousel-btn" type="button" data-dir="1" aria-label="Next">&#8594;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-section media-frame tab-e">
+          <span class="tab-label">Ottilie.edu</span>
+          <div>
+            <p class="bio">A passion project that I started while taking non-credit classes in university, ottilie.edu is a science education channel on TikTok that spans topics from fire education to ancient art history. It has 111,000 followers and 6 million likes, and I've collaborated with prominent content creators.</p>
+          </div>
+          <div>
+            <div class="media-box">
+            <div class="clip-grid" data-clipgrid="edu"></div>
+            <div class="clip-detail" data-clipdetail="edu" hidden>
+              <span class="clip-back">&larr; back to all clips</span>
+              <img class="clip-detail-thumb" src="" alt="" />
+              <div class="clip-detail-title"></div>
+              <div class="clip-detail-desc"></div>
+              <a class="clip-watch-link" href="" target="_blank" rel="noopener">Watch on TikTok &rarr;</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="statusbar chrome-text">
+      <span class="sunken-shallow">C:\portfolio\media_portfolio</span>
+      <span class="sunken-shallow">6 of 6</span>
+    </div>
+   </div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-panel="contact" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0" hidden>
+  <div class="window raised">
+   <div class="inner-frame">
+
+    <div class="content-surface sunken">
+      <p class="section-label">SEND A MESSAGE:</p>
+      <!-- PLACEHOLDER: this form does not send anything yet. When this becomes the
+           real Astro site, point it at a form endpoint (e.g. a serverless function
+           or a form service) and add spam protection there. -->
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="cf-email">Your email <span class="hint">(so I can reply)</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="6" required></textarea>
+        </div>
+        <button class="form-btn" type="submit">Send &rarr;</button>
+        <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="section-label elsewhere">ELSEWHERE:</p>
+      <dl class="contact-list">
+        <dt>linkedin:</dt><dd><a class="contact-link" href="https://www.linkedin.com/in/ottilieohm" target="_blank" rel="noopener">linkedin.com/in/ottilieohm</a></dd>
+      </dl>
+    </div>
+
+    <div class="statusbar chrome-text">
+      <span class="sunken-shallow">C:\portfolio\contact.txt</span>
+      <span class="sunken-shallow">1 of 1</span>
+    </div>
+   </div>
+  </div>
+  </div>
+
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  var allTabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-tab]'));
+
+  function activateTab(target, opts) {
+    opts = opts || {};
+    allTabs.forEach(function (t) {
+      var isTarget = t.getAttribute('data-tab') === target;
+      t.classList.toggle('active', isTarget);
+      t.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+      t.tabIndex = isTarget ? 0 : -1;
+      if (isTarget && opts.focus) t.focus();
+    });
+    document.querySelectorAll('.tab-panel').forEach(function (panel) {
+      panel.hidden = panel.getAttribute('data-panel') !== target;
+    });
+    if (opts.updateHash !== false) {
+      history.replaceState(null, '', '#' + target);
+    }
+    if (typeof fitTabLabels === 'function') fitTabLabels();
+  }
+
+  allTabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () {
+      activateTab(tab.getAttribute('data-tab'), { updateHash: true });
+    });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateTab(tab.getAttribute('data-tab'), { updateHash: true });
+        return;
       }
+      var dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : e.key === 'Home' ? 'home' : e.key === 'End' ? 'end' : null;
+      if (dir === null) return;
+      e.preventDefault();
+      var nextIndex = dir === 'home' ? 0 : dir === 'end' ? allTabs.length - 1 : (i + dir + allTabs.length) % allTabs.length;
+      var nextTab = allTabs[nextIndex];
+      activateTab(nextTab.getAttribute('data-tab'), { focus: true, updateHash: true });
+    });
+  });
 
-      function close() {
-        detail.classList.remove('is-open');
-        grid.style.display = '';
-      }
+  // Deep-linkable sections: #media or #contact opens straight to that tab,
+  // and switching tabs updates the URL the same way, so the link is shareable.
+  var initialHash = location.hash.replace('#', '');
+  if (allTabs.some(function (t) { return t.getAttribute('data-tab') === initialHash; })) {
+    activateTab(initialHash, { updateHash: false });
+  }
+  window.addEventListener('hashchange', function () {
+    var hash = location.hash.replace('#', '');
+    if (allTabs.some(function (t) { return t.getAttribute('data-tab') === hash; })) {
+      activateTab(hash, { updateHash: false });
+    }
+  });
 
-      grid.querySelectorAll('button').forEach((tile) => {
-        tile.addEventListener('click', () => open(Number(tile.dataset[datasetKey])));
+  document.querySelectorAll('[data-exp]').forEach(function (row) {
+    var head = row.querySelector('.exp-row-head');
+    function toggle() {
+      var open = row.classList.toggle('open');
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    row.addEventListener('click', function () {
+      // don't collapse a role just because someone is selecting its text
+      if (String(window.getSelection()).length) return;
+      toggle();
+    });
+    head.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+  // Contact form is a placeholder: it validates but sends nothing yet.
+  (function () {
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('cf-status');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = null;
+      [].forEach.call(form.elements, function (el) {
+        if (!el.name) return;
+        var invalid = !el.checkValidity();
+        el.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+        if (invalid && !bad) bad = el;
       });
-      back.addEventListener('click', close);
-    }
-
-    makeExpandableGrid({ media: bsMedia, prefix: 'bs', datasetKey: 'bsIndex', account: 'babysteppes' });
-    makeExpandableGrid({ media: eduMedia, prefix: 'edu', datasetKey: 'eduIndex', account: 'ottilie.edu' });
-
-    function makeCarousel({ media, imgId, captionId, prevId, nextId, dotsSelector, frameId, slotId, fixedRatio }) {
-      let idx = 0;
-      const caption = document.getElementById(captionId);
-      const prev = document.getElementById(prevId);
-      const next = document.getElementById(nextId);
-      const dots = Array.from(document.querySelectorAll(dotsSelector));
-      const frame = frameId ? document.getElementById(frameId) : null;
-      const slot = slotId ? document.getElementById(slotId) : null;
-      const img = imgId ? document.getElementById(imgId) : null;
-
-      function render() {
-        const item = media[idx];
-        caption.textContent = item.title;
-        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
-
-        if (slot) {
-          if (frame && item.ratio && !fixedRatio) frame.style.aspectRatio = item.ratio;
-          if (item.youtubeId) {
-            slot.innerHTML = '<iframe src="https://www.youtube.com/embed/' + item.youtubeId + '" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>';
-          } else if (item.src) {
-            slot.innerHTML = '<img src="' + item.src + '" alt="' + item.title.replace(/"/g, '&quot;') + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:' + (item.fit || 'cover') + ';display:block" />';
-          } else {
-            slot.innerHTML = '<span class="placeholder-fill" style="position:absolute;inset:0"><span class="placeholder-mark">▶</span></span>';
-          }
-        } else if (img) {
-          img.src = item.src;
-          img.alt = item.title;
-        }
+      if (bad) {
+        status.textContent = 'Please fill in every field' + (bad.type === 'email' ? ' with a valid email address.' : '.');
+        bad.focus();
+        return;
       }
+      status.textContent = 'This form isn\u2019t connected yet, so nothing was sent. For now, please reach me on LinkedIn.';
+    });
+  })();
 
-      prev.addEventListener('click', () => { idx = (idx - 1 + media.length) % media.length; render(); });
-      next.addEventListener('click', () => { idx = (idx + 1) % media.length; render(); });
-      dots.forEach((d, i) => d.addEventListener('click', () => { idx = i; render(); }));
+  var carouselData = {
+    love: [
+      { src: '/img/lovecampus/lovecampus1.gif', caption: 'premieres in 1 day' },
+      { src: '/img/lovecampus/lovecampus4.gif', caption: 'premieres in 3 days' },
+      { src: '/img/lovecampus/lovecampus2.jpg', caption: 'last day to apply' },
+      { src: '/img/lovecampus/lovecampus3.jpg', caption: 'love campus' },
+      { src: '/img/lovecampus/lovecampus5.jpg', caption: 'meet the cast' },
+      { src: '/img/lovecampus/lovecampus6.jpg', caption: 'last day to apply' }
+    ],
+    mav: [
+      { src: '/img/maverick/mav-01-waka-flocka.jpeg', caption: 'Waka Flocka Flame, MavPro Palooza 2022' },
+      { src: '/img/maverick/mav-02-concert-stage.jpeg', caption: 'concert stage' },
+      { src: '/img/maverick/mav-03-blackbear.jpg', caption: 'Blackbear at Baxter Arena' },
+      { src: '/img/maverick/mav-04-petting-zoo.jpg', caption: 'petting zoo event' },
+      { src: '/img/maverick/mav-05-photo-booth-a.jpg', caption: 'photo booth' },
+      { src: '/img/maverick/mav-06-photo-booth-b.jpg', caption: 'photo booth' },
+      { src: '/img/maverick/mav-07-glow-1.jpg', caption: 'glow event' },
+      { src: '/img/maverick/mav-08-glow-2.jpg', caption: 'glow event' },
+      { src: '/img/maverick/mav-09-filming-promos.jpg', caption: 'filming promos' },
+      { src: '/img/maverick/mav-10-food-night.png', caption: 'food night flyer', fit: 'contain' },
+      { src: '/img/maverick/mav-11-staff-badge.jpeg', caption: 'MavPro Palooza staff badge', fit: 'contain' }
+    ],
+    kennan: [
+      { src: '/img/kennan/kennan-01-urzhanov-quote.png', caption: 'speaker quote \u2014 Alexander Urzhanov, journalist & producer', fit: 'contain' },
+      { src: '/img/kennan/kennan-02-prokip-quote.jpg', caption: 'speaker quote \u2014 Andrian Prokip, Ukrainian Institute for the Future', fit: 'contain' },
+      { src: '/img/kennan/kennan-03-event-graphic.png', caption: "event: Putin's Revenge \u2014 Why Russia Invaded Ukraine", fit: 'contain' }
+    ]
+  };
 
-      render();
+  function initCarousel(root, data) {
+    var idx = 0;
+    var img = root.querySelector('.carousel-img');
+    var frame = root.querySelector('.carousel-frame');
+    var caption = root.querySelector('.carousel-caption');
+    var dotsWrap = root.querySelector('.carousel-dots');
+    var dots = [];
+    data.forEach(function (item, i) {
+      var d = document.createElement('span');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', function () { show(i); });
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    });
+    function show(i) {
+      idx = (i + data.length) % data.length;
+      var item = data[idx];
+      img.src = item.src;
+      img.style.objectFit = item.fit === 'contain' ? 'contain' : 'cover';
+      caption.textContent = item.caption || '';
+      if (item.ratio) frame.style.aspectRatio = item.ratio;
+      dots.forEach(function (d, di) { d.classList.toggle('active', di === idx); });
     }
+    root.querySelectorAll('.carousel-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { show(idx + parseInt(btn.getAttribute('data-dir'), 10)); });
+    });
+    show(0);
+  }
 
-    makeCarousel({ media: loveMedia, imgId: 'love-img', captionId: 'love-caption', prevId: 'love-prev', nextId: 'love-next', dotsSelector: '[data-love-dot]' });
-    makeCarousel({ media: mavMedia, captionId: 'mav-caption', prevId: 'mav-prev', nextId: 'mav-next', dotsSelector: '[data-mav-dot]', frameId: 'mav-frame', slotId: 'mav-media-slot', fixedRatio: true });
-    makeCarousel({ media: kennanMedia, captionId: 'kennan-caption', prevId: 'kennan-prev', nextId: 'kennan-next', dotsSelector: '[data-kennan-dot]', frameId: 'kennan-frame', slotId: 'kennan-media-slot' });
-  </script>
+  document.querySelectorAll('[data-carousel]').forEach(function (root) {
+    var key = root.getAttribute('data-carousel');
+    if (carouselData[key]) initCarousel(root, carouselData[key]);
+  });
+
+  var clipData = {
+    bs: {
+      account: 'babysteppes',
+      items: [
+        { title: 'steppe country, in motion', desc: 'A real Baby Steppes clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/bs-01.jpg', videoId: '7486964578207747374' },
+        { title: 'the steppe, explained', desc: 'A primer on what the steppe actually is \u2014 the landscape, the history, and why it shaped everything from trade routes to empires.', thumb: '/img/tiktok-thumbs/bs-02.jpg', videoId: '7577105307722140942' },
+        { title: 'GRWM: longform & education', desc: 'A longform get-ready-with-me that doubles as an education piece.', thumb: '/img/tiktok-thumbs/bs-03.jpg', videoId: '7354514922396618030' },
+        { title: 'on the road', desc: 'A lifestyle vlog shot on the move \u2014 travel content in its rawest form.', thumb: '/img/tiktok-thumbs/bs-04.jpg', videoId: '7148492600163552554' },
+        { title: 'replying to a comment', desc: 'A quick reply video, answering a question that came up in the comments.', thumb: '/img/tiktok-thumbs/bs-05.jpg', videoId: '7398355456139218222' },
+        { title: 'quick take', desc: 'A shorter clip, straight from the feed.', thumb: '/img/tiktok-thumbs/bs-06.jpg', videoId: '7572710536585022775' }
+      ]
+    },
+    edu: {
+      account: 'ottilie.edu',
+      items: [
+        { title: 'realism in ancient Egyptian art', desc: 'A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/edu-01.jpg', videoId: '7074672725553351982' },
+        { title: 'AI, ethics, and the people behind it', desc: 'Another real ottilie.edu clip, embedded directly from TikTok.', thumb: '/img/tiktok-thumbs/edu-02.jpg', videoId: '7109229276708474158' },
+        { title: 'ancient Egyptian makeup, with Dex', desc: 'A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/edu-03.jpg', videoId: '7103253714441342251' }
+      ]
+    }
+  };
+
+  function initClipGrid(prefix) {
+    var grid = document.querySelector('[data-clipgrid="' + prefix + '"]');
+    var detail = document.querySelector('[data-clipdetail="' + prefix + '"]');
+    if (!grid || !detail) return;
+    var config = clipData[prefix];
+    config.items.forEach(function (item, i) {
+      var tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'clip-tile';
+      var img = document.createElement('img');
+      img.src = item.thumb;
+      img.alt = item.title;
+      var cap = document.createElement('span');
+      cap.className = 'clip-caption';
+      cap.textContent = item.title;
+      tile.appendChild(img);
+      tile.appendChild(cap);
+      tile.addEventListener('click', function () { openDetail(i); });
+      grid.appendChild(tile);
+    });
+    function openDetail(i) {
+      var item = config.items[i];
+      detail.querySelector('.clip-detail-thumb').src = item.thumb;
+      detail.querySelector('.clip-detail-title').textContent = item.title;
+      detail.querySelector('.clip-detail-desc').textContent = item.desc;
+      detail.querySelector('.clip-watch-link').href = 'https://www.tiktok.com/@' + config.account + '/video/' + item.videoId;
+      grid.hidden = true;
+      detail.hidden = false;
+    }
+    detail.querySelector('.clip-back').addEventListener('click', function () {
+      detail.hidden = true;
+      grid.hidden = false;
+    });
+  }
+
+  initClipGrid('bs');
+  initClipGrid('edu');
+
+  // Builds the trapezoid outline as a background-image SVG whose viewBox
+  // matches the tab's real pixel width/height exactly. That keeps the CSS
+  // background-size:100% 100% stretch uniform on both axes, so the stroke
+  // renders the same true thickness everywhere — previously the shape used
+  // one fixed wide/short viewBox for every tab, stretched non-uniformly to
+  // fit each tab's actual (very different) box, which scaled diagonal
+  // strokes differently than horizontal ones and made the outline look
+  // thick in some spots and thin in others.
+  function tabShapeUrl(w, h) {
+    w = Math.max(1, Math.round(w));
+    h = Math.max(1, Math.round(h));
+    // 1.4 to match .media-frame's own border weight exactly, so the tab
+    // outline and the box it sits on read as the same line.
+    var sw = 1.4;
+    var half = sw / 2;
+    var x0 = 1;                         // where each side meets the frame line
+    var e = 3;                          // sides run a little past the bottom; the box clips them flat
+    var r = 16;                         // top-corner rounding radius
+    // The slant is tied to the tab's HEIGHT, not its width: horizontal run
+    // equals vertical rise, so every side is 45 degrees no matter how long
+    // the title is. (Slanting by a fraction of the width made the angle
+    // change with the text length.)
+    var run = h - half;
+    var tx1 = x0 + run, tx2 = w - x0 - run, ty = half;
+    // Rounding a corner whose sides turn by 45 degrees: the curve starts and
+    // ends t away from the corner point.
+    var t = r * Math.tan(Math.PI / 8), k = t * Math.SQRT1_2;
+    // One open path carries both the white fill and the black stroke, so the
+    // outline sits on the fill's edge. No Z: fill auto-closes, but the stroke
+    // only draws the explicit edges, so the tab opens into the frame below.
+    var d = 'M' + (x0 - e) + ',' + (h + e) +
+      ' L' + (tx1 - k) + ',' + (ty + k) +
+      ' A' + r + ',' + r + ' 0 0 1 ' + (tx1 + t) + ',' + ty +
+      ' L' + (tx2 - t) + ',' + ty +
+      ' A' + r + ',' + r + ' 0 0 1 ' + (tx2 + k) + ',' + (ty + k) +
+      ' L' + (w - x0 + e) + ',' + (h + e);
+    var svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 " + w + ' ' + h + "'>" +
+      "<path d='" + d + "' fill='white' stroke='black' stroke-width='" + sw + "' stroke-linejoin='round'/>" +
+      '</svg>';
+    return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+  }
+
+  function fitTabLabels() {
+    var frames = Array.prototype.slice.call(document.querySelectorAll('.media-frame'));
+    var labels = frames.map(function (frame) { return frame.querySelector('.tab-label'); });
+
+    labels.forEach(function (label) {
+      if (!label) return;
+      label.style.maxWidth = 'none';
+      label.style.width = 'max-content';
+      label.style.fontSize = '';
+    });
+
+    // Pass 1: per tab, find the largest font size that fits that tab's own
+    // frame. The smallest of those becomes the size every tab uses, so all
+    // headers render identically instead of each shrinking independently.
+    var uniformPx = null;
+    frames.forEach(function (frame, i) {
+      var label = labels[i];
+      if (!label) return;
+      var tabLeftPx = parseFloat(getComputedStyle(frame).getPropertyValue('--tab-left')) || 18;
+      var maxBoxWidth = frame.getBoundingClientRect().width - tabLeftPx - 12;
+      var guard = 0;
+      while (guard < 40) {
+        var textWidth = label.getBoundingClientRect().width;
+        var targetWidth = textWidth;
+        var currentPx = parseFloat(getComputedStyle(label).fontSize);
+        if (targetWidth <= maxBoxWidth || currentPx <= 13) break;
+        label.style.fontSize = (currentPx - 1) + 'px';
+        guard++;
+      }
+      var fitPx = parseFloat(getComputedStyle(label).fontSize);
+      if (uniformPx === null || fitPx < uniformPx) uniformPx = fitPx;
+      label.style.fontSize = '';
+    });
+
+    // Pass 2: apply that one uniform size to every tab, then size each tab's
+    // own box to fit its own (now-matching) text.
+    frames.forEach(function (frame, i) {
+      var label = labels[i];
+      if (!label) return;
+      label.style.fontSize = uniformPx + 'px';
+      var textWidth = label.getBoundingClientRect().width;
+      var tabLeftPx = parseFloat(getComputedStyle(frame).getPropertyValue('--tab-left')) || 18;
+      var maxBoxWidth = frame.getBoundingClientRect().width - tabLeftPx - 12;
+      var targetWidth = Math.min(Math.ceil(textWidth), Math.max(maxBoxWidth, 60));
+      label.style.maxWidth = '';
+      label.style.width = targetWidth + 'px';
+      frame.style.setProperty('--tab-width', targetWidth + 'px');
+      var tabHeight = label.getBoundingClientRect().height;
+      label.style.backgroundImage = tabShapeUrl(targetWidth, tabHeight);
+      label.style.backgroundSize = '100% 100%';
+    });
+  }
+  fitTabLabels();
+  window.addEventListener('resize', fitTabLabels);
+  window.addEventListener('load', fitTabLabels);
+  setTimeout(fitTabLabels, 300);
+  setTimeout(fitTabLabels, 1000);
+  setTimeout(fitTabLabels, 2500);
+  if (document.fonts) {
+    if (document.fonts.load) {
+      document.fonts.load("400 42px 'Fanwood Text'").then(fitTabLabels).catch(function () {});
+    }
+    if (document.fonts.ready) {
+      document.fonts.ready.then(fitTabLabels);
+    }
+  }
+  // Fonts can finish swapping in after every timed check above (slow network,
+  // artifact-viewer proxying); re-fit whenever a label's own rendered size
+  // actually changes, so the tab shape can never go stale relative to its text.
+  if (window.ResizeObserver) {
+    var refitQueued = false;
+    var ro = new ResizeObserver(function () {
+      if (refitQueued) return;
+      refitQueued = true;
+      requestAnimationFrame(function () { refitQueued = false; fitTabLabels(); });
+    });
+    document.querySelectorAll('.tab-label').forEach(function (label) { ro.observe(label); });
+  }
+</script>
 </body>
 </html>
