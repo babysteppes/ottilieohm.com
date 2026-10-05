@@ -21,7 +21,7 @@
   <style is:global>
     /* page defaults (the Artifact viewer used to supply these) */
     :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-    body { font-size: 18px; }
+    body { font-size: 20px; }
     img { max-width: 100%; }
     [hidden] { display: none !important; }
 
@@ -92,18 +92,18 @@
     justify-content: space-between;
     padding: 10px 0;
   }
-  .strip-arrow { font-size: 18px; line-height: 1; color: var(--mute); }
+  .strip-arrow { font-size: 20px; line-height: 1; color: var(--mute); }
   .strip-label {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 0.05em;
     color: var(--mute);
   }
 
   .main-col { flex: 1 1 auto; min-width: 0; padding: 10px; }
 
-  .contact-list { margin: 0; font-size: 18px; line-height: 1.6; max-width: 40ch; }
+  .contact-list { margin: 0; font-size: 20px; line-height: 1.6; max-width: 40ch; }
   .contact-list dt { font-weight: 600; margin-top: 16px; }
   .contact-list dt:first-child { margin-top: 0; }
   .contact-list dd { margin: 0; color: var(--mute); word-break: break-word; }
@@ -111,13 +111,13 @@
 
   .contact-form { max-width: 520px; margin: 0 0 8px; }
   .contact-form .field { margin-bottom: 14px; }
-  .contact-form label { display: block; font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .contact-form label { display: block; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
   .contact-form .hint { font-weight: 400; font-style: italic; color: var(--mute); }
   .contact-form input,
   .contact-form textarea {
     width: 100%;
     font: inherit;
-    font-size: 18px;
+    font-size: 20px;
     padding: 8px 10px;
     border: 1px solid var(--sh2);
     background: #fff;
@@ -130,7 +130,7 @@
   .contact-form [aria-invalid="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
   .form-btn {
     font: inherit;
-    font-size: 18px;
+    font-size: 20px;
     padding: 8px 20px;
     border: 1.5px solid var(--accent);
     background: #fff;
@@ -140,7 +140,7 @@
   }
   .form-btn:hover { background: var(--accent); color: #fff; }
   .form-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .form-status { margin: 10px 0 0; min-height: 1.4em; font-size: 18px; font-style: italic; color: var(--accent); }
+  .form-status { margin: 10px 0 0; min-height: 1.4em; font-size: 20px; font-style: italic; color: var(--accent); }
   .section-label.elsewhere { margin-top: 28px; }
 
   .outer-window { width: 100%; padding: 3px; background: var(--accent); }
@@ -168,7 +168,7 @@
     padding: 8px 18px;
   }
   .tab {
-    font-size: 18px;
+    font-size: 20px;
     font-style: italic;
     color: var(--mute);
     letter-spacing: 0.02em;
@@ -281,24 +281,24 @@
     border-top: 1px dotted var(--sh);
     color: inherit;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
   }
   .article-list a.article-row:hover .article-title-line { text-decoration: underline; }
   .article-row:last-child { border-bottom: 1px dotted var(--sh); }
   .article-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
   .article-title-line { font-weight: 600; }
-  .article-date { color: var(--mute); white-space: nowrap; font-variant-numeric: tabular-nums; font-size: 18px; }
-  .article-sub { color: var(--mute); font-size: 18px; margin-top: 2px; line-height: 1.45; }
+  .article-date { color: var(--mute); white-space: nowrap; font-variant-numeric: tabular-nums; font-size: 20px; }
+  .article-sub { color: var(--mute); font-size: 20px; margin-top: 2px; line-height: 1.45; }
   .more-link {
     display: block;
     width: fit-content;
     margin-top: 12px;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--accent);
   }
 
   .media-sub-label {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     text-decoration: underline;
     letter-spacing: 0.02em;
@@ -342,7 +342,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     transition: background 0.2s ease, transform 0.2s ease;
   }
   .mav-video-frame:hover .mav-play { background: rgba(0,0,0,0.78); transform: translate(-50%, -50%) scale(1.08); }
@@ -363,7 +363,7 @@
   [data-carousel="kennan"] .carousel-frame { background: #000; }
   .carousel-frame img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.25s ease; }
   .carousel-frame:hover img { transform: scale(1.04); }
-  .carousel-caption { font-size: 18px; color: var(--mute); margin-top: 6px; min-height: 1.5em; }
+  .carousel-caption { font-size: 20px; color: var(--mute); margin-top: 6px; min-height: 1.5em; }
   [data-carousel="kennan"] .carousel-caption { min-height: 3em; }
   .carousel-controls {
     display: flex;
@@ -379,7 +379,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--accent);
     line-height: 1;
@@ -425,7 +425,7 @@
     bottom: 0;
     background: rgba(255, 255, 255, 0.92);
     border-top: 1px solid var(--sh2);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.25;
     padding: 3px 4px;
     color: var(--ink);
@@ -437,7 +437,7 @@
   }
   .clip-back {
     display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--mute);
     cursor: pointer;
     margin-bottom: 10px;
@@ -449,9 +449,9 @@
     border: 1px solid var(--sh2);
     margin-bottom: 10px;
   }
-  .clip-detail-title { font-weight: 600; font-size: 18px; margin-bottom: 4px; }
-  .clip-detail-desc { font-size: 18px; color: var(--mute); line-height: 1.55; margin-bottom: 10px; }
-  .clip-watch-link { display: inline-block; color: var(--accent); font-size: 18px; }
+  .clip-detail-title { font-weight: 600; font-size: 20px; margin-bottom: 4px; }
+  .clip-detail-desc { font-size: 20px; color: var(--mute); line-height: 1.55; margin-bottom: 10px; }
+  .clip-watch-link { display: inline-block; color: var(--accent); font-size: 20px; }
 
   .top-row {
     display: grid;
@@ -476,7 +476,7 @@
     overflow: visible;
   }
   .photo-box span {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--accent);
     letter-spacing: 0.02em;
     font-family: 'Fanwood Text', serif;
@@ -494,14 +494,14 @@
   .top-row .bio { max-width: none; padding-right: 96px; }
 
   .bio {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.65;
     margin: 0;
     max-width: 62ch;
   }
 
   .section-label {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     text-decoration: underline;
     margin: 0 0 8px;
@@ -514,12 +514,12 @@
     gap: 28px;
   }
 
-  .sub-label { font-size: 18px; margin: 10px 0 2px; }
+  .sub-label { font-size: 20px; margin: 10px 0 2px; }
   ul.plain {
     list-style: none;
     margin: 0 0 6px;
     padding: 0;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.55;
   }
   ul.plain.indent { padding-left: 18px; }
@@ -530,23 +530,23 @@
     justify-content: space-between;
     align-items: baseline;
     gap: 10px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.55;
     max-width: 185px;
   }
   .lang-level { color: var(--mute); font-weight: 700; letter-spacing: 0.05em; }
 
-  .edu-entry, .ach-entry { margin-bottom: 14px; font-size: 18px; line-height: 1.5; }
+  .edu-entry, .ach-entry { margin-bottom: 14px; font-size: 20px; line-height: 1.5; }
   .edu-entry .role, .ach-entry .role { font-weight: 600; }
   .edu-entry .meta, .ach-entry .meta { color: var(--mute); }
-  .detail-line { font-size: 18px; line-height: 1.5; margin-top: 3px; font-style: italic; color: var(--mute); }
+  .detail-line { font-size: 20px; line-height: 1.5; margin-top: 3px; font-style: italic; color: var(--mute); }
 
   .experience { margin-top: 24px; }
   .exp-row {
     border-top: 1px dotted var(--sh);
     padding: 9px 8px;
     margin: 0 -8px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.55;
     cursor: pointer;
     transition: background 0.15s ease;
@@ -573,7 +573,7 @@
   .exp-detail {
     display: none;
     margin: 10px 0 2px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
     border-left: 2px solid var(--face);
     padding-left: 12px;
@@ -594,7 +594,7 @@
     display: flex;
     align-items: center;
     padding: 0 10px;
-    font-size: 18px;
+    font-size: 20px;
     font-variant-numeric: tabular-nums;
   }
 
@@ -606,13 +606,18 @@
 
   @media (max-width: 640px) {
     .tabrow { gap: 14px; padding: 8px 10px; }
-    .top-row { grid-template-columns: 1fr; }
+    /* minmax(0, ...) lets a column shrink below its content; plain 1fr would
+       let a fixed-width child (a carousel) stretch the whole layout past the screen */
+    .top-row { grid-template-columns: minmax(0, 1fr); }
     .photo-box { max-width: 180px; }
-    .two-col { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: minmax(0, 1fr); }
     .content-surface { padding: 14px 12px 6px; }
     .main-col { padding: 10px; }
-    .media-section { grid-template-columns: 1fr; }
-    .media-pair { grid-template-columns: 1fr; gap: 56px; }
+    .media-section { grid-template-columns: minmax(0, 1fr); }
+    .media-pair { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+    /* folder tabs: smaller side margin and a slightly shorter tab (the 45-degree
+       sides scale with tab height) so the longest title fits a phone screen */
+    .media-frame.media-frame { --tab-left: 10px; --tab-h: calc(var(--tab-font) + 10px); }
   }
   </style>
 </head>
@@ -1290,8 +1295,8 @@
         var textWidth = label.getBoundingClientRect().width;
         var targetWidth = textWidth;
         var currentPx = parseFloat(getComputedStyle(label).fontSize);
-        if (targetWidth <= maxBoxWidth || currentPx <= 18) break;
-        label.style.fontSize = Math.max(18, currentPx - 1) + 'px';
+        if (targetWidth <= maxBoxWidth || currentPx <= 20) break;
+        label.style.fontSize = Math.max(20, currentPx - 1) + 'px';
         guard++;
       }
       var fitPx = parseFloat(getComputedStyle(label).fontSize);
