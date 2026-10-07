@@ -317,6 +317,8 @@
   }
   .media-section > .media-box,
   .media-section > div:last-child > .media-box:first-child { margin-top: 0; }
+  /* a frame that is its own grid column would otherwise stretch to fill the whole column */
+  .media-section > .media-box { justify-self: start; }
 
   .mav-video-frame {
     position: relative;
@@ -444,13 +446,26 @@
     cursor: pointer;
     margin-bottom: 10px;
   }
-  .clip-detail-thumb {
-    width: 100%;
-    max-width: 180px;
-    display: block;
+  .clip-player {
+    position: relative;
+    width: 325px;
+    max-width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
     border: 1px solid var(--sh2);
     margin-bottom: 10px;
   }
+  /* the thumbnail shows while the player loads (and if it can't, e.g. a private video) */
+  .clip-detail-thumb,
+  .clip-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    border: 0;
+  }
+  .clip-detail-thumb { object-fit: cover; }
   .clip-detail-title { font-weight: 600; font-size: var(--fs); margin-bottom: 4px; }
   .clip-detail-desc { font-size: var(--fs); color: var(--mute); line-height: 1.55; margin-bottom: 10px; }
   .clip-watch-link { display: inline-block; color: var(--accent); font-size: var(--fs); }
@@ -862,7 +877,10 @@
             <div class="clip-grid" data-clipgrid="bs"></div>
             <div class="clip-detail" data-clipdetail="bs" hidden>
               <span class="clip-back">&larr; back to all clips</span>
-              <img class="clip-detail-thumb" src="" alt="" />
+              <div class="clip-player">
+                <img class="clip-detail-thumb" src="" alt="" />
+                <iframe class="clip-iframe" title="TikTok video" allow="fullscreen; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div>
               <div class="clip-detail-title"></div>
               <div class="clip-detail-desc"></div>
               <a class="clip-watch-link" href="" target="_blank" rel="noopener">Watch on TikTok &rarr;</a>
@@ -947,7 +965,10 @@
             <div class="clip-grid" data-clipgrid="edu"></div>
             <div class="clip-detail" data-clipdetail="edu" hidden>
               <span class="clip-back">&larr; back to all clips</span>
-              <img class="clip-detail-thumb" src="" alt="" />
+              <div class="clip-player">
+                <img class="clip-detail-thumb" src="" alt="" />
+                <iframe class="clip-iframe" title="TikTok video" allow="fullscreen; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div>
               <div class="clip-detail-title"></div>
               <div class="clip-detail-desc"></div>
               <a class="clip-watch-link" href="" target="_blank" rel="noopener">Watch on TikTok &rarr;</a>
@@ -1180,12 +1201,14 @@
         { title: 'quick take', desc: 'A shorter clip, straight from the feed.', thumb: '/img/tiktok-thumbs/bs-06.jpg', videoId: '7572710536585022775' }
       ]
     },
+    // embed: false because TikTok's player reports these videos as unavailable
+    // (they're restricted/private). Remove the flag once they're public.
     edu: {
       account: 'ottilie.edu',
       items: [
-        { title: 'realism in ancient Egyptian art', desc: 'A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/edu-01.jpg', videoId: '7074672725553351982' },
-        { title: 'AI, ethics, and the people behind it', desc: 'Another real ottilie.edu clip, embedded directly from TikTok.', thumb: '/img/tiktok-thumbs/edu-02.jpg', videoId: '7109229276708474158' },
-        { title: 'ancient Egyptian makeup, with Dex', desc: 'A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/edu-03.jpg', videoId: '7103253714441342251' }
+        { title: 'realism in ancient Egyptian art', desc: 'A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/edu-01.jpg', videoId: '7074672725553351982', embed: false },
+        { title: 'AI, ethics, and the people behind it', desc: 'Another real ottilie.edu clip, embedded directly from TikTok.', thumb: '/img/tiktok-thumbs/edu-02.jpg', videoId: '7109229276708474158', embed: false },
+        { title: 'ancient Egyptian makeup, with Dex', desc: 'A real ottilie.edu clip from TikTok, embedded directly so you can see how it plays in this layout.', thumb: '/img/tiktok-thumbs/edu-03.jpg', videoId: '7103253714441342251', embed: false }
       ]
     }
   };
@@ -1213,6 +1236,15 @@
     function openDetail(i) {
       var item = config.items[i];
       detail.querySelector('.clip-detail-thumb').src = item.thumb;
+      var player = detail.querySelector('.clip-iframe');
+      if (item.embed === false) {
+        player.removeAttribute('src');
+        player.hidden = true;
+      } else {
+        player.hidden = false;
+        player.title = 'TikTok video: ' + item.title;
+        player.src = 'https://www.tiktok.com/player/v1/' + item.videoId;
+      }
       detail.querySelector('.clip-detail-title').textContent = item.title;
       detail.querySelector('.clip-detail-desc').textContent = item.desc;
       detail.querySelector('.clip-watch-link').href = 'https://www.tiktok.com/@' + config.account + '/video/' + item.videoId;
@@ -1220,6 +1252,8 @@
       detail.hidden = false;
     }
     detail.querySelector('.clip-back').addEventListener('click', function () {
+      // drop the player so the video stops when you go back to the grid
+      detail.querySelector('.clip-iframe').removeAttribute('src');
       detail.hidden = true;
       grid.hidden = false;
     });
