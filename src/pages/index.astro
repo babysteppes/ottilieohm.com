@@ -409,34 +409,37 @@
   .clip-grid[hidden] { display: none; }
   .clip-tile {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    aspect-ratio: 9 / 16;
     border: 1px solid var(--sh2);
     padding: 0;
     margin: 0;
     cursor: pointer;
     overflow: hidden;
-    background: #fff;
+    background: var(--face);
     font: inherit;
     text-align: left;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .clip-tile:hover { transform: scale(1.035); box-shadow: 0 4px 14px rgba(0,0,0,0.2); z-index: 1; }
-  /* the thumbnail keeps its 9:16 shape and the caption sits under it, so longer
-     captions never cover the picture */
-  .clip-tile img { flex: none; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; display: block; background: var(--face); transition: transform 0.25s ease; }
+  .clip-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s ease; }
   .clip-tile:hover img { transform: scale(1.08); }
-  .clip-caption .cap-line { display: block; }
-  .clip-caption .cap-line + .cap-line { margin-top: 3px; }
-  .clip-caption .cap-lead { font-weight: 600; }
+  /* white bold text on a see-through dark-red band across the bottom of the video;
+     deliberately smaller than the page minimum so it covers little of the picture */
   .clip-tile .clip-caption {
-    flex: 1;
-    border-top: 1px solid var(--sh2);
-    font-size: var(--fs);
-    line-height: 1.25;
-    padding: 6px 8px 8px;
-    color: var(--ink);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: color-mix(in srgb, color-mix(in srgb, var(--accent) 62%, #000) 58%, transparent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+    padding: 5px 7px 6px;
   }
+  .clip-caption .cap-line { display: block; }
+  .clip-caption .cap-line + .cap-line { margin-top: 2px; }
   .clip-detail {
     max-width: 480px;
     border: 1px solid var(--accent);
@@ -1200,12 +1203,12 @@
       // title = tile caption: length \u00b7 views \u00b7 what it is \u00b7 style.
       // View counts are a snapshot from Oct 2026 (TikTok page data); update them by hand.
       items: [
-        { title: '1:58 \u00b7 313K views \u00b7 Kosovo travel vlog \u00b7 longform comedy', desc: 'A longform Kosovo travel vlog with a comedic streak, posted March 2025. The cover frame is an enormous shaggy dog in a city plaza.', thumb: '/img/tiktok-thumbs/bs-01.jpg', videoId: '7486964578207747374' },
-        { title: '0:10 \u00b7 821K views \u00b7 short form comedy \u00b7 viral', desc: 'A 10-second comedy clip that went viral, set to \u201cCowgirl Trailride.\u201d On-screen text: \u201cI never see you in the club\u201d okay? and I never see YOU in the Chinese horse museum.', thumb: '/img/tiktok-thumbs/bs-02.jpg', videoId: '7577105307722140942' },
-        { title: '3:37 \u00b7 87K views \u00b7 GRWM \u00b7 longform cultural exploration', desc: 'A longform get-ready-with-me that doubles as a cultural exploration, posted April 2024. The cover frame is a crowd of riders on a grassy field.', thumb: '/img/tiktok-thumbs/bs-03.jpg', videoId: '7354514922396618030' },
+        { title: '1:58 \u00b7 313K views \u00b7 Kosovo travel vlog \u00b7 comedy', desc: 'A Kosovo travel vlog with a comedic streak, posted March 2025. The cover frame is an enormous shaggy dog in a city plaza.', thumb: '/img/tiktok-thumbs/bs-01.jpg', videoId: '7486964578207747374' },
+        { title: '0:10 \u00b7 821K views \u00b7 comedy \u00b7 viral', desc: 'A 10-second comedy clip that went viral, set to \u201cCowgirl Trailride.\u201d On-screen text: \u201cI never see you in the club\u201d okay? and I never see YOU in the Chinese horse museum.', thumb: '/img/tiktok-thumbs/bs-02.jpg', videoId: '7577105307722140942' },
+        { title: '3:37 \u00b7 87K views \u00b7 GRWM \u00b7 cultural exploration', desc: 'A get-ready-with-me that doubles as a cultural exploration, posted April 2024. The cover frame is a crowd of riders on a grassy field.', thumb: '/img/tiktok-thumbs/bs-03.jpg', videoId: '7354514922396618030' },
         { title: '0:59 \u00b7 467K views \u00b7 Uzbekistan, slice of life \u00b7 vlog', desc: 'An Uzbekistan slice-of-life vlog from September 2022. On-screen text: \u201cthe last thing I need to do on my first day.\u201d', thumb: '/img/tiktok-thumbs/bs-04.jpg', videoId: '7148492600163552554' },
-        { title: '1:41 \u00b7 45K views \u00b7 Central Asia travel vlog \u00b7 longform cultural exploration', desc: 'A Central Asia travel vlog and cultural exploration, posted August 2024, in reply to a comment from @discount_johncena.', thumb: '/img/tiktok-thumbs/bs-05.jpg', videoId: '7398355456139218222' },
-        { title: '1:30 \u00b7 4.9K views \u00b7 China, slice of life \u00b7 longform cultural exploration', desc: 'A slice-of-life look at China, posted November 2025. On-screen text: \u201cI never get hungover, life is amazing!\u201d', thumb: '/img/tiktok-thumbs/bs-06.jpg', videoId: '7572710536585022775' }
+        { title: '1:41 \u00b7 45K views \u00b7 Central Asia travel vlog \u00b7 cultural exploration', desc: 'A Central Asia travel vlog and cultural exploration, posted August 2024, in reply to a comment from @discount_johncena.', thumb: '/img/tiktok-thumbs/bs-05.jpg', videoId: '7398355456139218222' },
+        { title: '1:30 \u00b7 China, slice of life \u00b7 cultural exploration', desc: 'A slice-of-life look at China, posted November 2025. On-screen text: \u201cI never get hungover, life is amazing!\u201d', thumb: '/img/tiktok-thumbs/bs-06.jpg', videoId: '7572710536585022775' }
       ]
     },
     // embed: false because TikTok's player reports these videos as unavailable
@@ -1237,10 +1240,12 @@
       // "length \u00b7 views \u00b7 what it is \u00b7 style" gets one line per idea so
       // phrases never break mid-way; plain one-part titles stay a single line
       var parts = item.title.split(' \u00b7 ');
-      var lines = parts.length === 4 ? [parts[0] + ' \u00b7 ' + parts[1], parts[2], parts[3]] : [item.title];
+      var lines = parts.length === 4 ? [parts[0] + ' \u00b7 ' + parts[1], parts[2], parts[3]]
+        : parts.length === 3 ? parts
+        : [item.title];
       lines.forEach(function (text, n) {
         var line = document.createElement('span');
-        line.className = 'cap-line' + (parts.length === 4 && n === 0 ? ' cap-lead' : '');
+        line.className = 'cap-line' + (parts.length >= 3 && n === 0 ? ' cap-lead' : '');
         line.textContent = text;
         cap.appendChild(line);
       });
