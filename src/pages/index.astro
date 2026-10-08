@@ -1045,6 +1045,20 @@
 <script is:inline>
   var allTabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-tab]'));
 
+  // Each tab has its own shareable URL (/, /portfolio, /contact); portfolio.astro
+  // and contact.astro render this same page and the script picks the tab from the path.
+  var tabPaths = { about: '/', media: '/portfolio', contact: '/contact' };
+  function tabFromLocation() {
+    // old-style links such as /#media still work and are rewritten to the new URL
+    var hash = location.hash.replace('#', '');
+    if (tabPaths[hash]) return hash;
+    var path = location.pathname.replace(/\/+$/, '').replace(/\.html$/, '');
+    for (var name in tabPaths) {
+      if (tabPaths[name] !== '/' && tabPaths[name] === path) return name;
+    }
+    return null;
+  }
+
   function activateTab(target, opts) {
     opts = opts || {};
     allTabs.forEach(function (t) {
@@ -1058,7 +1072,7 @@
       panel.hidden = panel.getAttribute('data-panel') !== target;
     });
     if (opts.updateHash !== false) {
-      history.replaceState(null, '', '#' + target);
+      history.replaceState(null, '', tabPaths[target] || '/');
     }
     if (typeof fitTabLabels === 'function') fitTabLabels();
   }
@@ -1082,17 +1096,13 @@
     });
   });
 
-  // Deep-linkable sections: #media or #contact opens straight to that tab,
+  // Deep-linkable sections: /portfolio or /contact opens straight to that tab,
   // and switching tabs updates the URL the same way, so the link is shareable.
-  var initialHash = location.hash.replace('#', '');
-  if (allTabs.some(function (t) { return t.getAttribute('data-tab') === initialHash; })) {
-    activateTab(initialHash, { updateHash: false });
-  }
+  var initialTab = tabFromLocation();
+  if (initialTab) activateTab(initialTab, { updateHash: location.hash !== '' });
   window.addEventListener('hashchange', function () {
-    var hash = location.hash.replace('#', '');
-    if (allTabs.some(function (t) { return t.getAttribute('data-tab') === hash; })) {
-      activateTab(hash, { updateHash: false });
-    }
+    var tab = tabFromLocation();
+    if (tab) activateTab(tab, { updateHash: true });
   });
 
   document.querySelectorAll('[data-exp]').forEach(function (row) {
